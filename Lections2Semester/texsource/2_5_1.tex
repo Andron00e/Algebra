@@ -1,0 +1,180 @@
+\chapter{Структура линейного преобразования.}\label{structure}
+
+В этой главе $V$ --- векторное пространство над полем $\mathbb{F}$,
+а $\varphi$ --- фиксированное линейное преобразование $V\to V$.
+
+
+\section{Инвариантные подпространства}
+
+%В этом параграфе $V$ --- векторное пространство над полем $\mathbb{F}$.
+Важную информацию о линейном преобразовании $\varphi \in L(V,V)$ можно узнать, изучая инвариантные
+подпространства (то есть инвариантные относительно $\varphi$
+подмножества $V$, являющиеся подпространствами). %--- см. определение ??????).
+Напомним, что $U \subset V$ называется инвариантным относительно $\varphi$, 
+если $\varphi (U)\subset U$, т.е. если $\forall$ $\vek{a} \in U$
+выполнено $\varphi(\vek{a}) \in U$.
+Всякий раз, когда имеется инвариантное относительно $\varphi \in L(V,V)$ подпространство $U\leq V$,
+можем говорить об ограничении (или  сужении) $\varphi | _{U} \in L(U, U)$.
+{\footnotesize Кроме того, условие инвариантности $U$ относительно $\varphi$ дает возможность
+корректно определить {\it фактор-оператор} $\breve{\varphi} \in L(V/U,V/U)$ по естественному 
+правилу  $\breve{\varphi} (\vek{a}+U) = \varphi (\vek{a}) +U$.}
+
+
+\begin{predl}\label{p8_5_0}
+Пусть  $U\leq V$, $U=\lin{\vek{a}_1, \ldots, \vek{a}_k}$.
+Тогда $U$ инвариантно относительно $\varphi \in L(V,V)$ $\Leftrightarrow$ $\varphi (\vek{a}_1), \ldots, \varphi (\vek{a}_k) \in U$. 
+\end{predl}
+\dok Следует из предложения \ref{p8_1_103} главы \ref{lin_otobr}.
+\edok
+
+\begin{predl}\label{p8_5_1}
+Пусть подпространства $U_i\leq V$, $i=1, \ldots, k$, инвариантны относительно
+$\varphi \in L(V,V)$. Тогда $\sum\limits_{i=1}^k U_i$ и
+$\bigcap\limits_{i=1}^k U_i$ тоже инвариантны относительно
+$\varphi$.
+\end{predl}
+\dok %TO BE PROVED
+\edok
+
+\otstup
+
+Отметим, что предыдущее предложение верно и для произвольных подмножеств
+$U_1, U_2, \ldots , U_k \subset V$.
+
+%\begin{zamech}
+%Предыдущее предложение верно и для произвольных подмножеств
+%$U_1, U_2, \ldots , U_k \subset V$.
+%\end{zamech}
+
+\begin{predl}\label{p8_5_2}
+Пусть $\varphi \in L(V,V)$,  $\psi \in L(V,V)$ таковы, что $\varphi  \psi =  \psi \varphi$.
+Тогда $\Ker \psi$, $\Im \psi$ инвариантны относительно $\varphi$.
+%В частности, собственное подпространство $V_{\lambda}$ для $\varphi$
+%инвариантно относительно $\varphi$.
+\end{predl}
+\dok 1).  Пусть $\vek{a}\in \Ker \psi$, так что $\psi (\vek{a}) = \vek{0}$.
+Тогда $\psi (\varphi (\vek{a})) = \varphi (\psi (\vek{a}))  = \varphi (\vek{0}) = \vek{0}$, 
+откуда $\varphi ( \vek{a} )\in \Ker \psi$.\\
+2). Пусть $\vek{b}\in \Im \psi$, так что $\vek{b} = \psi (\vek{a})$ для некоторого вектора $\vek{a}$.
+Тогда $\varphi ( \vek{b} ) = \varphi ( \psi (\vek{a})) = \psi (\varphi  (\vek{a})) $, 
+откуда $\varphi ( \vek{b} )\in \Im \psi$.
+\edok
+
+\begin{sled}\label{p8_5_222}
+Пусть $\varphi \in L(V,V)$ и $f\in \mathbb{F}[X]$.
+Тогда $\Ker f(\varphi)$, $\Im  f(\varphi)$ инвариантны относительно~$\varphi$.
+\end{sled}
+
+\begin{predl}\label{p8_5_3}
+Пусть $\varphi \in L(V,V)$ и $\lambda_0 \in \mathbb{F}$.
+Пусть подпространство
+$U\leq  V$ таково, что $U \geq \Im (\varphi - \lambda _0)$.
+Тогда $U$ инвариантно относительно $\varphi$.
+\end{predl}
+\dok Для любого вектора $\vek{a}$ 
+выполнено  $(\varphi - \lambda _0)(\vek{a}) \in \Im (\varphi - \lambda _0)\leq U$.
+Тогда если $\vek{a}\in U$, то $\varphi (\vek{a}) = (\varphi - \lambda _0)(\vek{a}) + \lambda _0 \vek{a} \in U$
+(оба слагаемых принадлежат в $U$).
+\edok
+
+\otstup
+
+Предыдущее предложение согласуется с соответствием между инвариантными 
+подпространствами сопряженных операторов (см. главу 6).
+
+
+\begin{predl}\label{p8_5_4}
+Пусть $\varphi \in L(V,V)$ --- изоморфизм. 
+Пусть подпространство $U\leq V$ инвариантно относительно $\varphi \in L(V,V)$ и $\dim U<\infty $.
+Тогда $U$ инвариантно относительно $\varphi ^{-1}$.
+\end{predl}
+\dok Сужение $\varphi|_U: U\to U$ является инъекцией, поэтому (см. теорему \ref{t_isom1} главы
+\ref{lin_otobr}) является изоморфизмом. Значит  $(\varphi|_U)^{-1}: U\to U$ --- сужение $\varphi ^{-1}$ на $U$.
+\edok
+
+\otstup
+
+Иногда вид матрицы линейного преобразования говорит о наличии некоторых инвариантных подпространств.
+%линейный оператор --- термин???
+
+\begin{predl}\label{p8_5_5}
+Пусть  $\dim V = n <\infty $ и
+$\varphi \in L(V,V)$ имеет в базисе $\bazis{e} = (\vek{e}_1,  \vek{e}_2, \ldots , \vek{e}_n)$
+матрицу $A=(a_{ij})$. Подпространство
+$U_k = \lin{ \vek{e}_1,  \vek{e}_2, \ldots , \vek{e}_k}$ инвариантно относительно $\varphi$
+$\Leftrightarrow$
+$a_{ij}=0$ для всех $i=k+1, \ldots, n$, $j=1, 2, \ldots, k$
+(то есть матрица $A$ имеет блочно-треугольный вид
+$\begin{pmatrix} B & C \\ O & D \end{pmatrix}$, где $O\in \mathbf{M}_{(n-k)\times k}$
+--- нулевая матрица).\\
+Кроме того, в таком случае $B$ --- матрица сужения $\varphi |_{U_k}$ в базисе
+$\vek{e}_1,  \vek{e}_2, \ldots , \vek{e}_k$ пространства $U_k$.
+\end{predl}
+\dok По определению матрицы линейного отображения, $a_{ij}=0$ для всех $i=k+1, \ldots, n$ $\Leftrightarrow$
+$\varphi (\vek{e}_j) \in \lin{\vek{e}_1, \vek{e}_2, \ldots, \vek{e}_k}$. Остается воспользоваться предложением \ref{p8_5_0}.
+\edok
+
+
+\otstup
+{\footnotesize В условиях предложения \ref{p8_5_5} матрица $D$ соответствует матрице фактор-оператора
+(в базисе $\vek{e}_i+U$, $i=k+1, \ldots, n$).
+}
+
+
+\begin{sled}
+Пусть $\varphi \in L(V,V)$, $\varphi \rsootv{\bazis{e}, \bazis{e}} A$.
+Тогда $A$ верхнетреугольная $\Leftrightarrow$ все подпространства  $\lin{\vek{e}_1, \ldots , \vek{e}_k}$, $k=1, \ldots, n$, инвариантны относительно $\varphi$.
+\end{sled}
+%\dok 
+%\edok
+%<<флаг>>
+
+Аналогично предложению \ref{p8_5_5}, матрица $A$ (где $\varphi \rsootv{\bazis{e}, \bazis{e}} A$) имеет блочно-треугольный вид
+$\begin{pmatrix} B & O \\ C & D \end{pmatrix}$, где $O\in \mathbf{M}_{k\times (n-k)}$
+%в том и только в том случае, когда 
+$\Leftrightarrow$
+%подпространство
+$\lin{ \vek{e}_{k+1},  \vek{e}_{k+2}, \ldots , \vek{e}_n}$ инвариантно относительно~$\varphi$.
+Соответственно,  блочно-диагональная структура $A$ (с квадратными блоками по диагонали) означает
+разложение $V$  в прямую сумму инвариантных подпространств, каждое из которых --- линейная оболочка нескольких 
+подряд идущих базисных векторов. В частности, 
+$A$ диагональна тогда  и только тогда, когда все одномерные подпространства $\lin{{e}_i}$, $i=1, \ldots, n$, 
+инвариантны относительно $\varphi$. 
+
+В последнем случае структура оператора $\varphi$ вполне понятна: рассматриваемый  базис таков, что
+на каждом из них $\varphi$ действует умножением на константу. 
+%$n$ базисных векторовДальнейшее во многом будет 
+%Дальнейшая теория строится во многом исходя из желания по возможности найти для оператора 
+%такую структуру или понять....
+
+
+\begin{predl}\label{p8_5_66}
+Пусть  $\dim V = n <\infty $, $\varphi \in L(V,V)$ и $f\in \mathbb{F}[X]$  
+--- многочлен степени $k$ такой, что оператор $f(\varphi)$ вырожден.
+Тогда существует ненулевое подпростанство размерности не больше $k$, инвариантное относительно $\varphi$.
+\end{predl}
+\dok Пусть $\vek{a}$ --- ненулевой вектор из $\Ker f(\varphi)$.
+Покажем, что подпространство $U = \lin{\vek{a}, \varphi(\vek{a}), \varphi ^2(\vek{a}), \ldots , 
+\varphi ^{k-1}(\vek{a})}$ инвариантно относительно $\varphi$.
+Условия из  предложения \ref{p8_5_0}, очевидно выполнены для всех порождающих $U$ 
+векторов, кроме возможно, $\varphi ^{k-1}(\vek{a})$. Итак, 
+нужно проверить, что $\varphi ^{k}(\vek{a}) \in U$. \\
+Пусть $f(x) = \alpha _k x^k + \alpha _{k-1} x^{k-1} + \ldots  + \alpha _{1} x + \alpha _0$, $\alpha_k\neq 0$.
+Тогда \\ $(f(\varphi))(\vek{a}) = 
+\alpha _k \varphi ^k (\vek{a}) + \alpha _{k-1} \varphi ^{k-1} (\vek{a})
++ \ldots  + \alpha _{1} \varphi (\vek{a}) + \alpha _0 \vek{a} = \vek{0}$, 
+откуда видим, что $\varphi ^k (\vek{a})$
+линейно выражается через $\vek{a}, \varphi(\vek{a}), \varphi ^2(\vek{a}), \ldots , 
+\varphi ^{k-1}(\vek{a})$, т.е.  $\varphi ^k (\vek{a})\in U$.
+% = -\frac{\alpha _{k-1}}{\alpha _{k}} \varphi ^{k-1} (\vek{a}) - \ldots 
+%-\frac{\alpha _{0}}{\alpha _{k}} \vek{a} \in \lin{\vek{a}, \varphi(\vek{a}), \varphi ^2(\vek{a}), \ldots , 
+%\varphi ^{k-1}(\vek{a})} = U.$
+\edok
+
+
+\otstup
+
+Ниже как следствие предложения \ref{p8_5_66} мы установим существование инвариантных подпространств
+малой размерности в случаях $\mathbb{F}=\mathbb{C}$ ($\dim =1$) и $\mathbb{F}=\mathbb{R}$ ($\dim \leq 2$).
+
+

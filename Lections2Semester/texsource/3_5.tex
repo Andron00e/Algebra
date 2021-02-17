@@ -1,0 +1,53 @@
+
+
+\section{Кососимметричные формы}
+
+В этом параграфе $V$ --- векторное пространство над $\mathbb{R}$.
+
+
+\defin{
+Билинейная (полуторалинейная) форма $\beta$ на пространстве $V$ называется {\it кососимметричной},
+если $\forall$ $\vek{a}, \vek{b} \in V$
+$$\beta (\vek{a}, \vek{b}) = -\beta (\vek{b}, \vek{a}).$$
+}
+
+
+Множество всех симметричных (эрмитовых) билинейных (полуторалинейных) форм на пространстве $V$ обозначаем 
+$\mathcal{B}_{Alt}(V)$.
+
+\otstup
+
+Для $\beta \in \mathcal{B}_{Alt}(V)$, очевидно,
+ $\beta (\vek{a}, \vek{a}) = 0$. 
+
+
+\begin{theor}\label{t9_2_1111}
+Пусть $\dim V<\infty$, $\bazis{e}$ --- базис в $V$. Пусть $\beta \in  \mathcal{B}(V)$, $\beta \rsootv{\bazis{e}} B$.
+Тогда $\beta\in \mathcal{B}_{Alt}(V)$ $\Leftrightarrow$ $B^{T}=-B$.% (где, как обычно,  $B^{*} = \overline{B^T}$).
+\end{theor}
+\dok Аналогично доказательству теоремы \ref{t9_2_1}.
+\edok
+
+%\dok 
+%\dokright Надо доказать, что $\overline{b_{ji}}=b_{ij}$ или что $\overline{\beta(\vek{e}_j, \vek{e}_i)}=\beta(\vek{e}_i, \vek{e}_j)$ для всевозможных пар индексов.
+%Но это сразу следует из определения.
+
+%\dokleft Пусть $\vek{a}, \vek{b} \in V$ --- произвольные векторы, $\vek{a}=\bazis{e}X$, $\vek{b}=\bazis{e}Y$.
+%Тогда $\beta (\vek{a}, \vek{b}) = X^T B \overline{Y}$.
+%Также $\beta (\vek{b}, \vek{a}) = Y^T B \overline{X}$ или (транспонируем матрицу $1\times 1$)
+%$\beta (\vek{b}, \vek{a}) = \overline{X}^T B^T Y = \overline{ X^T B^{*} \overline{Y} } = \overline{X^T B \overline{Y}}$. 
+%Отсюда $\overline{\beta (\vek{b}, \vek{a})}=\beta (\vek{a}, \vek{b})$, что и требовалось.
+%\edok
+
+
+
+\begin{theor}[канонический вид]\label{t9_3_1111}
+Пусть $\dim V=n<\infty$,  $\beta\in \mathcal{B}_{Alt}(V)$. 
+Тогда существует базис, в котором $\beta$ имеет блочно-диагональный вид, в котором по диагонали
+встречаются блоки вида  \\$(0)$ или 
+$\begin{pmatrix} 0 & -1 \\ 
+1& 0
+\end{pmatrix}.$
+\end{theor}
+\dok CХЕМА: ДВОЙНЫМИ ЭЛЕМЕНТАРНЫМИ ПРЕОБРАЗОВАНИЯМИ.
+\edok

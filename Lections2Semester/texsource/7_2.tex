@@ -1,0 +1,198 @@
+
+\section{Тензоры и основные операции над ними}
+
+%(опуская <<совсем правильное>> определение, ...)
+
+\subsection{Тензор как полилинейная функция}
+
+\defin{
+Тензором типа $(p,q)$ над векторным пространством $V$ называют
+полилинейное отображение из множества
+$\Hom( \underbrace{V^*, \ldots , V^*}_{p}, \underbrace{V, \ldots , V}_{q}; \mathbb{F})$.
+}
+
+
+Более заумное название тензора типа $(p,q)$: $p$ раз контравариантный и $q$ раз ковариантный.
+
+Обозначение (помимо $\Hom( \underbrace{V^*, \ldots , V^*}_{p}, \underbrace{V, \ldots , V}_{q}; \mathbb{F})$):
+$$T^p_q(V).$$ 
+(или просто $T^p_q$, если ясно, о каком $V$ идет речь).
+
+Для $\tau \in T^p_q(V)$ определено значение $\tau (\underbrace{\ell, \ldots }_{p}, \underbrace{\vek{a}, 
+\vek{b}, \ldots }_{q})$ на упорядоченном наборе из $p$ линейных функционалах (ковекторах) и $q$ векторах.
+
+$T^p_q(V)$ --- векторное пространство. \\
+Что такое $T^0_0(V)$?
+
+Выписывая компоненты в базисах, условимся во всех $q$ копиях $V$ выбирать один и тот же базис 
+$\bazis{e} = (\vek{e}_1, \ldots, \vek{e}_n)$, а во всех 
+$p$ копиях $V^*$ выбирать базис
+$\bazis{e}^* = (\vek{e}^1, \ldots, \vek{e}^n)$, биортогональный базису $\bazis{e}$.
+Компоненты пишем с $p$ верхними и $q$ нижними индексами, для возможности использовать тензорное суммирование.
+ 
+Для $\tau \in T^p_q(V)$ соответствие (\ref{b_{ij..}}) приобретает вид:
+
+$\tau \, \, \rsootv{\bazis{e}^*, \ldots , \bazis{e}, \bazis{e}, \ldots } \, \,  
+t_{i_1i_2 \ldots i_q}^{j_1j_2\ldots j_p},  $
+или (сокращая обозначения)
+$$\tau \, \, \rsootv{\bazis{e}} \, \,  
+t_{ik \ldots }^{j\ldots }.  $$
+
+Массив из $n^{p+q}$ констант $t_{ik \ldots }^{j\ldots } = \tau 
+(\underbrace{\vek{e}^j, \ldots  }_q, \underbrace{\vek{e}_i, \vek{e}_k, \ldots }_p, )$ --- 
+компоненты тензора $\tau $  в базисе $\bazis{e}$.
+
+Теперь формула (\ref{beta()}) приобретает вид
+$$\tau (\underbrace{\ell, \ldots }_{p}, \underbrace{\vek{a}, 
+\vek{b}, \ldots }_{q})  = t_{ik \ldots }^{j\ldots } x^iy^k \ldots z_j\ldots , $$
+где $\vek{a} = x^i\vek{e}_i$, $\vek{b} = y^k\vek{e}_k$, \ldots , $\ell = z_j\vek{e}^j$, \ldots ---
+разложения векторов ($p+q$ аргументов, к которым применяется $\tau$)  по базисам $\bazis{e}$ и 
+$\bazis{e}^*$
+
+
+Формула (\ref{zamena_tenz}) изменения компонент при переходе от базиса $\bazis{e}$ к 
+$\bazis{e}'$ и соответственно от базиса $\bazis{e}^*$ к 
+$\bazis{e}'^*$:
+
+$$
+\boxed{
+{t'}_{ik \ldots }^{j\ldots }  = t_{i'k' \ldots }^{j'\ldots }  \, \,  s^{i'}_i s^{k'}_k\ldots r^j_{j'} \ldots  
+},
+$$
+где (как, скажем, и в доказательства предложения \ref{p8_4_1} главы \ref{lin_funk}),
+$S=(s^{i'}_i)$ --- матрица перехода от $\bazis{e}$ к 
+$\bazis{e}'$, а $R=(r^j_{j'}) = S^{-1}$ --- транспонированная к матрице перехода от 
+$\bazis{e}^*$ к $\bazis{e}'^*$ (транспонирование связано с нашей договоренностью о
+верхних и нижних индексах при работе в $V^*$).
+
+
+
+
+\subsection{Тензорное умножение}
+
+\defin{
+Тензорным произведением тензора  $\alpha \in T^p_q$ на 
+тензор  $\beta \in T^{p'}_{q'}$
+называют тензор $\gamma \in T^{p+p'}_{q+q'}$ такой, что
+$$\gamma (\underbrace{\ell, \ldots }_{p}, \underbrace{m, \ldots }_{p'}, 
+\underbrace{\vek{a}, \vek{b}, \ldots }_{q}, 
+\underbrace{\vek{c}, \vek{d}, \ldots }_{q'}) \,  =      \, 
+ \alpha (\underbrace{\ell, \ldots }_{p}, 
+\underbrace{\vek{a}, \vek{b}, \ldots }_{q}) \, \cdot \, 
+\beta (\underbrace{m, \ldots }_{p'}, \underbrace{\vek{c}, 
+\vek{d}, \ldots }_{q'}).$$
+}
+
+Обозначение: $\alpha \otimes \beta$.
+
+Ассоциативность, дистрибутивность относительно сложения. 
+
+Нет коммутативности.
+
+<<организуем>> алгебру
+$$\bigoplus\limits_{q=0}^{\infty} T^0_q$$
+%$$\bigoplus\limits_{p=0}^{\infty} T^p_0$$
+
+%Тензорная %(градуированная) 
+%алгебра $T(V)$%(ассоциативная 
+$$\bigoplus\limits_{p, q} T^p_q .$$
+
+
+
+
+
+В координатах --- <<независимое умножение>>. Пусть
+$$\alpha \, \, \rsootv{\bazis{e}} \, \,  
+a_{i_1i_2 \ldots i_q}^{j_1j_2\ldots j_p},  \,\,\, $$
+$$\beta \, \, \rsootv{\bazis{e}} \, \,  
+b_{i'_1i'_2 \ldots i'_{q'}}^{j'_1j'_2\ldots j'_{p'}}. $$
+Тогда 
+$$\gamma \, \, \rsootv{\bazis{e}} \, \,  
+c_{i_1i_2 \ldots i_q\,  i'_1i'_2 \ldots i'_{q'}}^{j_1j_2\ldots j_p\, j'_1j'_2\ldots j'_{p'}} \,\,\, =
+\,\,\, a_{i_1i_2 \ldots i_q}^{j_1j_2\ldots j_p}\,\, \cdot \,\, 
+b_{i'_1i'_2 \ldots i'_{q'}}^{j'_1j'_2\ldots j'_{p'}}. $$
+
+Разложимый тензор --- тензор, равный произведению тензоров валентности 1 (векторов и ковекторов).
+
+\example{ Как действует тензор $\vek{e}^3 \otimes \vek{e}^1 \otimes \vek{e}^3 \in T^0_3$?\\
+$(\vek{e}^3 \otimes \vek{e}^1 \otimes \vek{e}^3 )(\vek{e}_i, \vek{e}_j, \vek{e}_k) = 
+\delta _i^3 \delta _j^1 \delta _k^3$.\\
+$(\vek{e}^3 \otimes \vek{e}^1 \otimes \vek{e}^3 )(\vek{a}, \vek{b}, \vek{c}) = x^3y^1z^3$, 
+где $ \vek{a} = x^i\vek{e}_i$, $ \vek{b} = y^j\vek{e}_j$, $ \vek{c} = z^k\vek{e}_k$. 
+}
+
+\otstup
+
+Тензоры вида  $\underbrace{\vek{e}_j \otimes \ldots }_p\otimes 
+\underbrace{\vek{e}^i \otimes \vek{e}^k \otimes \ldots }_q$
+--- <<стандартный>> (т.е. согласованный с $\bazis{e}$) базис в $T^p_q$,
+так что 
+$$\tau  = t^{j\ldots}_{ik\ldots } \,\,
+\underbrace{\vek{e}_j \otimes \ldots }_p\otimes 
+\underbrace{\vek{e}^i \otimes \vek{e}^k \otimes \ldots }_q, $$
+где 
+$\tau \, \, \rsootv{\bazis{e}} \, \,  
+t_{ik \ldots }^{j\ldots }.  $
+
+
+
+\subsection{Свертка}
+
+Зафиксируем некоторый базис и зададим {\it свертку }  (по паре первых аргументов) как линейное отображение 
+
+$$T^p_q\to T^{p-1}_{q-1}$$
+
+по следующему правилу. Достаточно определить значение свертки вначале на 
+<<стандартном базисе>> $T^p_q(V)$, связанным с базисом $\bazis{e}$ пространства $V$
+(далее продолжается по линейности):
+
+\begin{equation}\label{svert}
+\underbrace{\vek{e}_j \otimes \vek{e}_l \otimes \ldots }_p\otimes 
+\underbrace{\vek{e}^i \otimes \vek{e}^k \otimes \ldots }_q
+\mapsto \delta_j^i  \, \, \underbrace{\vek{e}_l \otimes \ldots }_{p-1}\otimes 
+\underbrace{\vek{e}^k \otimes \ldots}_{q-1}.
+\end{equation}
+
+
+Из линейности легко следует, что 
+
+$$\underbrace{ \vek{a} \otimes \vek{b} \otimes \ldots }_p \otimes 
+\underbrace{\ell \otimes m \otimes \ldots }_q
+\mapsto \lin{\vek{a}, \ell} \,\,
+\underbrace{\vek{b} \otimes \ldots }_{p-1}\otimes \underbrace{m \otimes \ldots}_{q-1}.$$
+
+В частности, это означает, что (\ref{svert}) работает и для
+другого выбора базиса. 
+
+В координатах переход к свертке выглядит просто: 
+$$t_{ik\ldots }^{jl\ldots } \mapsto t_{ik\ldots }^{il\ldots }.$$
+
+
+\subsection{Примеры.}
+
+
+-- Значение  линейной формы на векторе: 
+$\vek{a} \otimes \ell$ --- далее свертка (в результате $l_{i} x^i $).
+
+\otstup
+
+-- Значение  билинейной формы
+$\vek{a} \otimes \vek{b} \otimes \beta  $ --- далее свертка (в результате $b_{ij} x^i y^j$)
+
+\otstup
+
+---Матрица $A=(a^i_j)$ линейного отображения $\varphi : V\to V$ --- 
+тензор из $T^1_1$.\\
+$\tr A  = a^i_i$ --- свертка.\\
+Матрица произведения двух отображений:
+$a^i_j b^j_k$.
+
+\otstup
+
+%Умноженивк в алгебре (свертка со структурным тензором)
+
+--- В евклидовом пространстве $g_{ij}$ --- метрический Тензор (матрица Грама).\\
+Тензорное домножение на $g_{ij}$ с последующей сверткой по одному из аргументов --- <<опускание индекса>>.\\
+Например: $b_{jk} = a^i_j g_{ik}$.\\
+(связь между операторами и билинейными формами в еквлидовом пространстве).
+

@@ -1,0 +1,352 @@
+\section{Образ и ядро}
+
+
+\subsection{Образ}
+
+В предложении \ref{p8_1_103} мы видели, что при линейном отображении $\varphi \in L(V, \widetilde{V})$ образ $\varphi (U)$ подпространства $U\leq V$
+является подпространством в  $\widetilde{V}$.
+Для образа отображения $\varphi $ наряду с обозначением $\varphi (V)$ используют обозначение $\Im \varphi$.
+Очевидно, $\varphi \in L(V, \widetilde{V})$ является сюръективным $\Leftrightarrow$ $\widetilde{V} = \Im \varphi$.
+
+%\begin{theor}\label{t8_2_1}
+%Пусть $\varphi \in L(V, \widetilde{V})$, и $\bazis{e} = (\vek{e}_1, \vek{e}_2, \ldots , \vek{e}_n)$
+%--- базис в  $V$. Тогда 
+%$\Im \varphi = \lin{\varphi(\vek{e}_1), \varphi(\vek{e}_2), \ldots , \varphi(\vek{e}_n) }.$
+%\end{theor}
+%\dok  Следует из \ref{p8_1_101}.
+%\edok
+%%ЭТО ПОВТОР!!
+
+\begin{theor}[координатное описание образа]\label{t8_2_111}
+Пусть $\varphi \in L(V, \widetilde{V})$,  $\bazis{e}$, $\bazis{f}$ --- базисы в $V$ и $\widetilde{V}$.
+Пусть $\varphi \rsootv{\bazis{e}, \bazis{f}} A$.
+Для вектора $\vek{b} \in \widetilde{V}$, $\vek{b}=\bazis{f}Y$ выполнено:
+$\vek{b} \in \Im \varphi$ $\Leftrightarrow$ $Y\in \lin{a_{\bullet 1}, a_{\bullet 2}, \ldots, a_{\bullet n}}$.
+\end{theor}
+\dok  Следует из сопоставления определения матрицы линейного отображения и предложения \ref{p8_1_103}.
+\edok
+
+Иначе говоря, теорема утверждает, что в терминах координатных столбцов $\Im \varphi$ задается 
+как линейная оболочка столбцов матрицы линейного отображения.
+Это, в частности, дает еще одно объяснение того факта, что 
+$\rg A$ не зависит от выбора базисов в пространствах $V$ и $\widetilde{V}$.
+
+\begin{sled}
+В условиях теоремы $\boxed{\dim \Im \varphi = \rg A} $.
+\end{sled}
+
+
+\subsection{Ядро}
+
+Покажем вначале, что при линейном отображении полный прообраз подпространства является подпространством.
+
+\begin{predl}\label{proobr}
+Пусть $\varphi \in L(V, \widetilde{V})$ и  $\widetilde{U}\leq \widetilde{V}$.
+Тогда 
+%1. $\varphi (U)\leq \widetilde{V}$; \\
+$\{ \vek{a} \in V \, | \, \varphi (\vek{a}) \in \widetilde{U} \} \leq V$.
+%$\varphi ^{-1}(\widetilde{U})$ 
+%Полный прообраз подпространства $\widetilde{V}$
+%--- подпространство в $V$.
+\end{predl}
+\dok Положим $U=\{ \vek{a} \in V \, | \, \varphi (\vek{a}) \in \widetilde{U} \}$ и проверим для $U$ свойства П1 и П2.\\
+Пусть $ \vek{a}, \vek{b}$ --- произвольные векторы из $U$. Тогда 
+$\varphi(\vek{a})\in \widetilde{U}$, $\varphi(\vek{b})\in \widetilde{U}$. Из свойства П1 для 
+$\widetilde{U}$ получаем, что $\varphi(\vek{a})+\varphi(\vek{b})\in \widetilde{U}$, то есть
+$\varphi(\vek{a}+\vek{b})\in \widetilde{U}$. Но последнее включение означает, что $\vek{a}+\vek{b}\in U$.\\
+П2 проверяется аналогично.
+\edok
+
+\defin{{\it Ядром} линейного отображения $\varphi \in L(V, \widetilde{V})$
+называется  подмножество $\{ \vek{a} \in V \, | \, \varphi (\vek{a}) = \vek{0}\}$.
+}
+
+Обозначение для ядра --- $\Ker \varphi$. %Для образа отображения $\varphi $ наряду с обозначением $\varphi (V)$ используют обозначение $\Im \varphi$.
+Опеределение можно переформулировать так: $\Ker \varphi$ --- это полный прообраз нулевого подпространства,
+поэтому из предложения \ref{proobr} вытекает
+
+
+\begin{sled}\label{Ker}
+Если $\varphi \in L(V, \widetilde{V})$, то $\Ker \varphi \leq V$. %и $\Im \varphi \leq \widetilde{V}$. % --- подпространства в $V$ и $\widetilde{V}$ соответственно.
+\end{sled}
+
+
+
+
+\otstup 
+
+Для выяснения, является ли $\varphi$ инъективным, полезен следующий критерий.
+
+\begin{predl}\label{p8_2_2}
+$\varphi \in L(V, \widetilde{V})$ инъективно $\Leftrightarrow$ $\Ker \varphi = O$.
+\end{predl}
+\dok 
+Следующее доказательство похоже на доказательство пункта 2 теоремы \ref{t8_1_1}.\\
+\dokright Пусть $\vek{a}\in \Ker \varphi $, то есть $\varphi  (\vek{a})=\vek{0}$.
+Но также $\varphi  (\vek{0})=\vek{0}$, и поскольку $\varphi$ инъективно, имеем $\vek{a}=\vek{0}$.\\
+\dokright Пусть $\varphi  (\vek{a})=\varphi  (\vek{b})$. Тогда $\varphi  (\vek{a}-\vek{b})=\vek{0}$.
+С учетом $\Ker \varphi = O$ имеем $\vek{a}-\vek{b}=\vek{0}$, то есть $\vek{a}=\vek{b}$.
+Тем самым, $\varphi  (\vek{a})=\varphi  (\vek{b})$ $\Rightarrow$ $\vek{a}=\vek{b}$, и инъективность доказана.
+\edok
+
+
+\begin{theor}[координатное описание ядра]\label{t8_2_122}
+Пусть $\varphi \in L(V, \widetilde{V})$,  $\bazis{e}$, $\bazis{f}$ --- базисы в $V$ и $\widetilde{V}$.
+Пусть $\varphi \rsootv{\bazis{e}, \bazis{f}} A$.
+Для вектора $\vek{a} \in V$, $\vek{a}=\bazis{e}X$ выполнено:
+$\vek{a} \in \Ker \varphi$ $\Leftrightarrow$ $AX =O$. 
+\end{theor}
+\dok  Достаточно сопоставить определение ядра с  формулой $Y=AX$ (см. теорему \ref{t8_3_1}).
+\edok
+
+\otstup
+
+Иначе говоря, теорема утверждает, что в терминах координатных столбцов $\Ker \varphi$ задается как 
+общее решение  $\Sol (AX=O)$ однородной СЛУ с матрицей коэффициентов $A$.
+
+\begin{sled}
+В условиях теоремы $\boxed{\dim \Ker \varphi = n - \rg A}$.
+\end{sled}
+
+
+
+
+\subsection{Связь между размерностями ядра и образа}
+
+Установим формулу, связывающую размерности  ядра и образа.
+
+
+\begin{theor}\label{t8_2_2}
+Пусть $\varphi \in L(V, \widetilde{V})$ и $\dim V =n < \infty $.
+Тогда 
+\begin{equation}\label{Ker_Im}
+\boxed{\dim \Ker \varphi + \dim \Im \varphi = n}.
+\end{equation}
+\end{theor}
+\dok Можно считать, что $\dim \widetilde{V}<\infty $ (иначе заменим $\widetilde{V}$ на любое конечномерное подпространство, содержащее $\Im \varphi$, 
+замена  не влияет на $\Im$ и $\Ker $). 
+Рассмотрим матрицу $A$ отображения $\varphi$ в некоторых базисах.
+По следствию из теоремы \ref{t8_2_111} имеем $\dim \Im \varphi = \rg A$,
+а по следствию из теоремы \ref{t8_2_122} имеем $\dim \Ker \varphi = n - \rg A$.
+Отсюда вытекет нужная формула размерностей.
+\edok
+
+\begin{sled}\label{sootv_mezhdu_podpr}
+Пусть $\varphi \in L(V, \widetilde{V})$, $\dim V<\infty $ и  $U\leq V$. Тогда
+\begin{equation}\label{dimUphiU}
+\dim U \leq \dim \varphi (U) +  \dim \Ker \varphi,
+\end{equation}
+причем равенство  достигается $\Leftrightarrow$
+$U\geq \Ker \varphi$.
+\end{sled}
+\dok Ограничение $\varphi$ на $U$ (т.е. $\varphi  |_{U}  \in L(U, \widetilde{V})$),
+обозначим $\psi$. Применив (\ref{Ker_Im}) к $\psi$,
+имеем $ \dim \varphi (U) +  \dim \Ker \psi = \dim U $, при этом 
+$\Ker \psi = (\Ker \varphi )\cap U \leq \Ker \varphi$,
+откуда следуют нужные утверждения.
+\edok
+
+\otstup 
+
+Отметим, что (\ref{Ker_Im}) находится в согласии с эквивалентностью условий 1), 2), 3) 
+в теореме \ref{t_isom1}.
+
+\otstup 
+
+{\footnotesize
+Мы доказали теорему \ref{t8_2_2}, перейдя c <<языка отображений>> на <<матричный язык>>. Более <<концептуально>> ---
+получить формулу размерностей (\ref{Ker_Im}) как следствие 
+{\it теоремы о гомоморфизме}  $V / \Ker \varphi \cong \Im \varphi$ (это стандартная теорема 
+курса алгебры для многих алгебраических систем), которая вытекает из естественной биекции
+$\vek{a}+ \Ker \varphi \mapsto \varphi (\vek{a})$.
+Как следствие теоремы о гомоморфизме можно получить биекцию между подпространствами в $V$, содержашими $\Ker \varphi$, и подпространствами в $\Im \varphi$ (что соответсвует случаю равенства в (\ref{dimUphiU})).
+}
+
+\otstup 
+
+В следующем упражнении намечен еще один путь доказательства формулы из теоремы \ref{t8_2_2} без привлечения матрицы линейного отображения.
+
+\otstup
+
+{\bf Упражнение.} Пусть $\varphi \in L(V, \widetilde{V})$ и $\dim V =n < \infty $.
+Пусть $\vek{e}_{r+1}, \ldots, \vek{e}_{n}$ --- базис в $\Ker \varphi$. Дополним его до базиса 
+$\vek{e}_{1}, \vek{e}_{2}, \ldots, \vek{e}_{n}$ пространства $V$. 
+Докажите, что тогда $\Im \varphi = \lin{\varphi (\vek{e}_{1}), \ldots, \varphi (\vek{e}_{r})}$, причем 
+$\varphi (\vek{e}_{1}), \ldots, \varphi (\vek{e}_{r})$ --- линейно независимая система.
+
+\otstup
+
+Предлагаем еще одно упражнение о простейшем виде матрицы линенйного отображения.
+
+\otstup
+
+{\bf Упражнение.} 
+Пусть $\varphi \in L(V, \widetilde{V})$. Докажите, что в пространствах $V$ и $\widetilde{V}$ можно выбрать базисы $\bazis{e}$ и $\bazis{f}$
+так, что %матрица отображения $\varphi$ будет иметь {\it простейший} вид
+$$\varphi \rsootv{\bazis{e}, \bazis{f}} \begin{pmatrix}
+E_r & O \\
+O & O
+\end{pmatrix}.$$
+(Утверждение последнего упражнения не следует путать со случаем выбора одного и того же базиса $\bazis{e} = \bazis{f}$
+для матрицы линейного преобразования, как обычно будет происходить в главе \ref{structure}.)
+
+
+
+
+\subsection{Примеры}
+
+Пусть $V = U_1 \bigoplus U_2$. Пусть  $\varphi: V\to V$ --- проектирование на $U_1$ вдоль $U_2$. 
+Тогда $\Im \varphi = U_1$, $\Ker \varphi = U_2$.
+
+%Отображение $\psi: V\to V$ такое, что $\varphi(\vek{a}) = \vek{a}_1 - \vek{a}_2$,
+%называется {\it отражением}  (или {\it симметрией}) относительно $U_1$ вдоль $U_2$.
+
+\example{III.1.
+Пусть $V= \mathbf{C}^{\infty}(\mathbb{R})$. 
+Общее решение $U$ линейного дифференциального уравнения
+$x^{(n)}+a_{n-1}(t)x^{(n-1)}+\ldots + a_{1}(t)x' + a_0(t)x =0 $ (где $a_i(t)$ --- непрерывные функции $\mathbb{R}\to \mathbb{R}$) 
+является ядром линейного дифференциального оператора $d^n+a_{n-1}d^{n-1}+\ldots +a_{1}d + a_0d^0 $.\\
+Теорема существования и единственности из курса дифференциальных уравнений устанавливает изоморфизм
+между решением $x\in U$ и столбцом {\it начальных условий } $\stolbec{x(t_0)\\ x'(t_0) \\ \ldots \\ x^{(n-1)}(t_0)}$,
+тем самым, $\dim U = n$.
+}
+
+\example{III.2.
+Пусть  $V=\mathbf{F}(\mathbb{N})=\{(a_1, a_2, \ldots) \, | \, a_i\in \mathbb{F}\}$ --- пространство числовых последовательностей.\\
+Фибоначчиевы последовательности могут быть заданы как ядро линейного оператора $\varphi ^2- \varphi - \varphi ^0$, где 
+$\varphi : V\to V$ --- оператор сдвига.
+}
+
+
+
+\subsection{Ядро и образ произведения отображений}
+
+Начнем с двух почти очевидных предложений.
+
+
+
+\begin{predl}
+Пусть $\varphi \in L(V, \widetilde{V})$, $\psi \in L(\widetilde{V}, \widehat{V})$.
+Тогда $$\Im (\psi \varphi ) \leq \Im \psi .$$
+\end{predl}
+\dok Это частный случай включения $\psi (U) \leq \psi(V)$ для $U= \varphi (V)$.
+\edok
+
+
+\begin{predl}\label{Ker_psi_phi}
+Пусть $\varphi \in L(V, \widetilde{V})$, $\psi \in L(\widetilde{V}, \widehat{V})$.
+Тогда $$\Ker (\psi \varphi ) \geq \Ker  \varphi .$$
+\end{predl}
+\dok Если $\vek{a}\in \Ker  \varphi$, то $\varphi (\vek{a}) = \vek{0}$
+$\Leftrightarrow$  $(\psi \varphi)  (\vek{a}) = \psi (\varphi  (\vek{a})) = \vek{0}$
+$\Leftrightarrow$ $\vek{a}\in \Ker (\psi \varphi )$.
+\edok
+
+\otstup
+
+{\bf Упражнение.}
+Переформулируйте и докажите теоремы об оценке ранга произведения матриц
+$\rg (AB) \leq \rg A$, $\rg (AB) \leq \rg B$
+в терминах линейных отображений.
+%\\
+%Получите доказательство теоремы о ранге произведения матриц, используя 
+%линейные отображения.
+
+\otstup
+ 
+
+
+Зафиксируем еще несколько фактов, которые будем  использовать далее.
+
+\begin{predl}\label{Ker_psi_phi_leq}
+Пусть $\varphi \in L(V, \widetilde{V})$, $\psi \in L(\widetilde{V}, \widehat{V})$, $\dim V<\infty $.
+Тогда 
+\begin{equation}\label{Kerpsivarphileq}
+\dim \Ker (\psi \varphi ) \leq \dim \Ker  \varphi + \dim \Ker  \psi.
+\end{equation}
+\end{predl}
+\dok 
+Пусть $U=\Ker (\psi \varphi ) $. Тогда $\varphi (U) \leq \Ker \psi$.
+Согласно следствию из теоремы \ref{t8_2_2},  имеем 
+$\dim U = \dim \varphi (U) +  \dim \Ker \varphi \leq  \dim \Ker  \psi + \dim \Ker  \varphi  $, 
+что и требовалось.
+\edok 
+
+
+\otstup 
+Отметим, что равенство в 
+ (\ref{Kerpsivarphileq})
+достигается $\Leftrightarrow$ $\varphi (U) = \Ker \psi $, или, поскольку $U$ является 
+полным прообразом  $\Ker \psi $ относительно $\varphi$, эквивалентно, $ \Ker \psi \leq \Im \varphi$.
+
+\otstup
+
+
+{\bf Упражнение.}
+а) Для матриц $A\in \mathbf{M}_{m\times n}$, 
+$B\in \mathbf{M}_{n\times k}$ 
+докажите {\it неравенство Сильвестра} $$\rg (AB) \geq \rg A +  \rg B - n.$$
+
+б) Каков максимальный ранг матрицы $A\in \mathbf{M}_{n\times n}$, если $A^2=O$?
+
+в)$^*$ Для матриц $A\in \mathbf{M}_{m\times n}$, 
+$B\in \mathbf{M}_{n\times k}$,  $C\in \mathbf{M}_{k\times l}$ 
+докажите {\it неравенство Фробениуса} (обобщающее неравенство Сильвестра) 
+$$\rg (ABC) + \rg B \geq \rg (AB) +  \rg (BC).$$
+
+\otstup
+
+
+В качестве следствия  предложения \ref{Ker_psi_phi} имеем
+
+\begin{predl}\label{sled_Ker_psi_phi}
+Пусть $\varphi \in L(V, V)$, $\psi \in L(V, V)$,
+причем $\varphi \psi = \psi \varphi $.
+Тогда 
+\begin{equation}\label{Kerpsiphigeq}
+\Ker (\psi \varphi ) \geq \Ker  \varphi + \Ker  \psi .
+\end{equation}
+\end{predl}
+\dok Так как $\Ker (\psi \varphi ) \geq \Ker  \varphi  $ и 
+$\Ker (\psi \varphi )  = \Ker (\varphi \psi ) \geq \Ker  \psi  $, то \\
+$\Ker (\psi \varphi ) \geq \lin{\Ker  \varphi, \Ker  \psi}  = \Ker  \varphi + \Ker  \psi$.
+\edok
+
+\begin{sled}\label{sledsled_Ker_psi_phi}
+Пусть  $\varphi \in L(V, V)$, $\psi \in L(V, V)$, $\dim V <\infty$, 
+причем $\varphi \psi = \psi \varphi $.
+Если $\Ker  \varphi \cap  \Ker  \psi = O$, то 
+$\Ker (\psi \varphi ) =\Ker  \varphi \oplus \Ker  \psi .$
+\end{sled}
+\dok Из (\ref{Kerpsiphigeq}), при условии $\Ker  \varphi \cap  \Ker  \psi = O$,
+следует, что $\Ker (\psi \varphi ) \geq \Ker  \varphi \oplus \Ker  \psi $ и
+$\dim \Ker (\psi \varphi ) \geq \dim \Ker  \varphi + \dim \Ker  \psi$.
+Тогда из (\ref{Kerpsivarphileq}) вытекет требуемое.
+\edok
+
+\begin{predl}\label{Ker_polynom}
+Пусть $\varphi \in L(V, V)$, а $f_1, \ldots, f_k\in \mathbb{F}[X]$ --- попарно взаимно простые многочлены.
+Тогда $\sum\limits_{i=1}^k \Ker (f_i(\varphi) )$ --- прямая сумма. \\
+Если, кроме того,   $\dim V<\infty$, то $\Ker (f_1(\varphi) ) \oplus \ldots \oplus 
+\Ker (f_k(\varphi) ) = \Ker (f_1(\varphi)\ldots f_k(\varphi) )$.
+\end{predl}
+\dok Докажем в случае  $k=2$. Этого будет достаточно, так как случай произвольного $k$ 
+можно разобрать,  применив утверждение для $k=2$ к многочленам
+$f_1$ и $f_2\ldots f_k$, далее к $f_2$ и $f_3\ldots f_k$ и т.д.\\
+Так как $f_1$ и $f_2$ взаимно просты, существуют многочлены 
+$g_1, g_2\in \mathbb{F}[X]$  такие, что $g_1f_1+g_2f_2=1$.
+Тогда из этого равенсва многочленов  имеем 
+$g_1 (\varphi)f_1(\varphi)+g_2(\varphi)f_2(\varphi)=I_V$.\\
+Применяя это операторное равенство для $\vek{a}\in \Ker (f_1(\varphi) ) \cap \Ker (f_2(\varphi) ) $, 
+получаем $\vek{0}=\vek{a}$, значит 
+$\Ker (f_1(\varphi) ) \cap \Ker (f_2(\varphi) ) =O$, тем самым утверждение про прямую сумму доказано.
+\\
+Второе утверждение сразу получаем в силу следствия из предложения \ref{sled_Ker_psi_phi}.
+\edok
+
+
+
+%Расширить  Ker произведения... Re
+%не-ва для рангов.
+% Ker p(f) + Ker q(f)
+

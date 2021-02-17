@@ -1,0 +1,106 @@
+\chapter{Тензоры
+}%\label{lin_funk}
+
+В этой главе рассматриваем векторные пространства над полем $\mathbb{F}$.
+(где возникает деление (симметризация и пр.) предполагаем, что характеристика поля равна 0).
+
+%(Над $\mathbb{C}$)
+
+%ВООБЩЕ ПОГРУЗИТЬ В ТЕОРИЮ БИЛИНЕЙНЫХ ОТОБРАЖЕНИЙ... B(V, V_1, ... )
+
+
+\section{Полилинейные отображения}
+
+\subsection{Определение и координантая запись}
+
+%\defin{
+%Полилинейным отображением...
+%}
+
+Отображение $\beta : V_1\times V_2 \times \ldots \times V_k \to \mathbb{F}$
+{\it полилинейно}, если $\beta (\vek{a}_1, \vek{a}_2, \ldots, \vek{a}_k)$ линейно по каждому из аргументов.
+
+\otstup
+
+Множество всех полилинейных отображений обозначим $\Hom(V_1, V_2, \ldots , V_k; \mathbb{F})$.
+
+\otstup
+
+Примеры. В старых обозначениях для $V$ над $\mathbb{R}$:\\
+ $\Hom(V, V; \mathbb{R}) = \mathcal{B}(V)$;\\
+$\Hom(V; \mathbb{R}) = V^*$;\\
+$\Hom(V^*; \mathbb{R}) = V$ (с учетом отождествления $V$ и $V^{**}$).\\
+
+
+Пусть $\dim V_t  = n_t$ и в каждом $V_t$ зафиксирован базис:
+в $V_1$ --- базис $\bazis{e} = (\vek{e}_1, \ldots, \vek{e}_{n_1})$,
+в $V_2$ --- базис $\bazis{f} = (\vek{f}_1, \ldots, \vek{f}_{n_2})$, и т.д.
+
+Сопоставим каждому $\beta \in \Hom(V_1, V_2, \ldots , V_k; \mathbb{F})$ массив 
+из $n_1\ldots n_k$ констант $b_{i_1 i_2 \ldots i_k}$, $i_t\in \{1, \ldots, n_t\}$
+(далее для упрощения обозначений пишем $b_{ij\ldots }$):
+\begin{equation}\label{b_{ij..}}
+\beta \rsootv{\bazis{e}, \bazis{f}, \ldots } b_{ij \ldots },  
+\end{equation}
+где $\boxed{b_{i j \ldots } = \beta (\vek{e}_{i}, \vek{f}_{j}, \ldots )}$.
+
+$b_{i j \ldots }$ называются {\it компонентами} полилинейного отображения в базисах $\bazis{e}, \bazis{f}, \ldots $. 
+
+\begin{theor}[координатная запись]\label{t20_1_1}
+Пусть $\beta \in \Hom(V_1, V_2, \ldots , V_k; \mathbb{F})$ и 
+$\beta \rsootv{\bazis{e}, \bazis{f}, \ldots } b_{i j \ldots }$. 
+Пусть векторы $\vek{a} \in V_1$, $\vek{b} \in V_2, \ldots, $ разложены по базисам:
+$\vek{a} = x^i \vek{e}_i $, $\vek{b} = y^j \vek{f}_j $, \ldots
+Тогда 
+\begin{equation}\label{beta()}
+\boxed{ \beta (\vek{a}, \vek{b}, \ldots ) = b_{i j \ldots } x^iy^j\ldots } .
+\end{equation}
+\end{theor}
+\dok Раскроем $\beta (\vek{a}, \vek{b}, \ldots)  $, ....
+\edok
+
+ (\ref{b_{ij..}}) задает взаимно-однозначное соответствие 
+ $\Hom(V_1, V_2, \ldots , V_k; \mathbb{F}) \to \mathbb{F} ^{n_1n_2\ldots n_k}$
+
+
+
+\subsection{Замена базиса}
+ 
+
+Во встречающихся матрицах перехода обозначаем верхним индексом номер строки, 
+а нижним --- номер столбца, так если $S=(s^i_j)$ --- матрица перехода от базиса
+$(\vek{e}_1, \ldots )$ к базису $(\vek{e}'_1, \ldots )$, то замена базиса
+происходит по правилу $$\vek{e}'_j = s^i_j \vek{e}_i,$$
+а, скажем, замена координат вектора --- 
+по правилу $$x^i = s^i_j x'^j.$$
+
+
+\begin{theor}\label{t20_1_2}
+Пусть в $V_1$ выбраны базисы $\bazis{e}$ и $\bazis{e}'$, связанные матрицей перехода $s^i_j$, 
+в $V_2$ выбраны базисы $\bazis{f}$ и $\bazis{f}'$, связанные матрицей перехода $t^i_j$, и т.д.
+Пусть $\beta \in T(V_1, V_2, \ldots , V_k)$ так, что 
+$$\beta \rsootv{\bazis{e}, \bazis{f}, \ldots } b_{i j \ldots },$$ 
+$$\beta \rsootv{\bazis{e}', \bazis{f}', \ldots } b'_{i j \ldots }$$
+Тогда  
+\begin{equation}\label{zamena_tenz}
+\boxed{b'_{i j \ldots }  = b_{k l \ldots } s^k_i t^l_j \ldots  }.
+\end{equation}
+\end{theor}
+%\dok Пусть $\vek{a} \in V_1, \vek{b} \in V_2, \ldots $ --- произвольные векторы. 
+%Пусть $\vek{a}=x^i\vek{e}_i = x'^i\vek{e}'_i$, 
+%$\vek{b}=\bazis{e}Y = \bazis{e}'Y'$, и т.д.
+%Тогда по теореме \ref{t9_1_1}  имеем $\beta (\vek{a}, \vek{b}) = X^T B \overline{Y}$ и $\beta (\vek{a}, \vek{b}) = X'^T B \overline{Y'}$
+%Подставляя  $X=SX'$, $Y=SY'$ (см. теорему \ref{t7_3_2}, глава \ref{lin_prostr}),
+% имеем $\beta (\vek{a}, \vek{b}) = (SX')^T B \overline{SY'} = X'^T S^T B \overline{S} \overline{Y'} = X'^T (S^T B \overline{S}) \overline{Y'} $. 
+%В силу предложения \ref{p9_1_2} получаем требуемое: $B'=S^TB\overline{S}$.
+%\edok
+
+(Координатное определение тензора)
+
+
+\subsection{Линейные операции}
+
+
+$\Hom(V_1, V_2, \ldots , V_k; \mathbb{F})$ --- векторное пространство над $\mathbb{F}$. 
+
+

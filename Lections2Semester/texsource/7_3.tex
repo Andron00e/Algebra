@@ -1,0 +1,348 @@
+
+\section{Симметричные и кососимметричные тензоры. }
+
+
+\subsection{Перестановка аргументов в функциях нескольких переменных.}
+
+%Определим эти операции для $T^0_q$ (можно обобщить для $T^p_q$, выполняя операции отдельно с верхними и нижними индексами).
+
+Если $X$ и $Y$ --- произвольные множества, то  
+на множестве $\mathcal{F}$ отображений $\underbrace{X\times X\times \ldots \times X}_q \, \to \, Y$ 
+естественным образом действует группа перестановок $S_q = S_{\{1, 2, \ldots, q\}}$, так что 
+$\sigma \in S_q$ переставляет аргументы отображения $f\in \mathcal{F}$:
+% и перестановки  определена функция 
+%$\sigma f \in \mathcal{F} $ по правилу 
+$$(\sigma f) (x_1, \ldots , x_q) = f (x_{\sigma (1)}, \ldots , x_{\sigma (q)}).$$
+
+Очевидно, $f\mapsto \sigma f$ задает биекцию $\mathcal{F} \to \mathcal{F}$.
+Далее считаем, что $Y$ --- векторное пространство (над некоторым полем $\mathbb{F}$), тогда $f\mapsto \sigma f$ задает изоморфизм $\mathcal{F} \to \mathcal{F}$.
+
+
+\subsection{Симметрические функции. Симметризация.}
+
+\defin{
+Функция $ f \in \mathcal{F} $ называется {\it симметрической}, если 
+ $\forall$ $\sigma \in S_q$ выполнено $$\sigma f =f .$$
+}
+
+Подмножество всех симметрических $f\in \mathcal{F}$ можно обозначить $\mathcal{F}^+$.
+
+Можно определять более общее понятие --- симметричность относительно 
+действия заданной подгруппы в $H\leq S_q$,
+заменяя в определении симметричности условие $\forall$ $\sigma \in S_q$ на $\forall$ $\sigma \in H$.
+Например, если 
+$H=S_{\{1, 2, \ldots, p\}}$, получаем условие симметричности относительно
+первых $p$ аргументов
+(и аналогичнно для $H=S_{\{p+1, p+2, \ldots, q\}}$ --- условие симметричности относительно
+последних $q-p$ аргументов).
+%$H$ --- симметричность относительно четных перестановок
+
+
+
+
+ 
+С помощью действия $S_q$ на $\mathcal{F} $ (в случае поля нулевой характеристики) 
+можем определить {\it усреднение}, или {\it симметризацию} как
+$$\Sym (f) = \dfrac{1}{q!} \sum\limits_{\sigma \in S_q} \sigma f , $$
+или более общо, симметризацию относительно действия заданной подгруппы в $H\leq S_q$
+как $$\Sym_H(f) = \dfrac{1}{|H|} \sum\limits_{\sigma \in H} \sigma f .$$
+
+Следующее предложение показывает, что  $\Sym : \mathcal{F} \to \mathcal{F}$ является проектором на 
+$\mathcal{F}^+$.
+
+\begin{predl}
+1) $\forall$ $f \in \mathcal{F} $ выполнено $\Sym (f) \in \mathcal{F}^+ $;\\
+2) если $f \in \mathcal{F}^+ $, то $\Sym (f)=f$.
+\end{predl}
+
+
+
+\begin{lem}\label{premix}
+Пусть $\sigma_0 \in H \leq S_q$ ($H$ --- подгруппа в  $S_q$). Тогда
+$\forall$ $f \in \mathcal{F} $ выполнено
+$$\Sym_H(\sigma_0f) = \Sym_H (f) .$$
+\end{lem}
+
+
+%лемма о повторном размешивании...
+ 
+\begin{lem}\label{double_mix}
+Пусть $H\leq G\leq S_q$ (две подгруппы $S_q$, одна вложена в другую). Тогда
+$\forall$ $f \in \mathcal{F} $ выполнено
+$$\Sym_G (\Sym_H(f)) = \Sym_G (f) .$$
+\end{lem}
+
+
+
+\subsection{Кососимметрические функции. Альтернирование.}
+
+Вспомним, что каждой перестановке приписан {\it знак} $\varepsilon(\sigma)$, 
+равный $\pm 1$ (в зависимости от четности $\sigma$).
+
+\defin{
+Функция $ f \in \mathcal{F} $ называется {\it кососимметрической}, если 
+ $\forall$ $\sigma \in S_q$ выполнено $$\sigma f = \varepsilon(\sigma) \cdot f .$$
+}
+
+Подмножество всех кососимметрических $f\in \mathcal{F}$ можно обозначить $\mathcal{F}^-$.
+
+{\bf Упражнение}. Докажите, что  $\mathcal{F}^+ \oplus \mathcal{F}^-$ --- прямая сумма.
+Однако, равенство $\mathcal{F} = \mathcal{F}^+ \oplus \mathcal{F}^-$, верное в случае функций от $q=2$ переменных вообще говоря, перестает быть верным при $q>2$.
+
+
+%Можно определять более общее понятие --- симметричность относительно 
+%действия заданной подгруппы в $H\leq S_q$,
+%заменяя в определении симметричности условие $\forall$ $\sigma \in S_q$ на $\forall$ $\sigma \in H$.
+%Например, если 
+%$H=S_{\{1, 2, \ldots, p\}}$, получаем условие симметричности относительно
+%первых $p$ аргументов
+%(и аналогичнно для $H=S_{\{p+1, p+2, \ldots, q\}}$ --- условие симметричности относительно
+%последних $q-p$ аргументов).
+%%$H$ --- симметричность относительно четных перестановок
+
+ 
+Аналогично симметризации можно определить <<усреднение со знаком>>, или {\it альтернирование} как
+$$\Alt (f) = \dfrac{1}{q!} \sum\limits_{\sigma \in S_q} \varepsilon(\sigma) \cdot \sigma f .$$
+Более общо, %симметризацию относительно действия заданной 
+для подгруппы в $H\leq S_q$
+$$\Alt_H(f) = \dfrac{1}{|H|} \sum\limits_{\sigma \in H} \varepsilon(\sigma) \cdot \sigma f .$$
+Отметим, что если $H$ состоит только из четных перестановок, то $\Alt_H(f) = \Sym_H(f)$.
+
+
+
+Следующее предложение покавается,  $\Sym : \mathcal{F} \to \mathcal{F}$ является проектором на 
+$\mathcal{F}^-$.
+
+\begin{predl}
+1) $\forall$ $f \in \mathcal{F} $ выполнено $\Alt (f) \in \mathcal{F}^- $;\\
+2) если $f \in \mathcal{F}^- $, то $\Alt (f)=f$.
+\end{predl}
+
+
+
+\begin{lem}\label{premix_alt}
+Пусть $\sigma_0 \in H \leq S_q$ ($H$ --- подгруппа в  $S_q$). Тогда
+$\forall$ $f \in \mathcal{F} $ выполнено
+$$\Alt_H(\sigma_0f) = \varepsilon (\sigma_0)\cdot \Alt_H (f) .$$
+\end{lem}
+
+
+%лемма о повторном размешивании...
+ 
+\begin{lem}\label{double_mix_alt}
+Пусть $H\leq G\leq S_q$ (две подгруппы $S_q$, одна вложена в другую). Тогда
+$\forall$ $f \in \mathcal{F} $ выполнено
+$$\Alt_G (\Alt_H(f)) = \Alt_G (f) .$$
+\end{lem}
+
+
+
+
+\subsection{Применение к тензорам.}
+
+
+Так как тензоры из являются функциями 
+$\underbrace{V\times V\times \ldots \times V}_q \, \to \, \mathbb{F}$,  
+согласно общей излагаемой теории, на пространстве $T^0_q = T^0_q (V) $ определяется изоморфизм $T^0_q\to T^0_q$
+перестановки аргументов $\tau \mapsto \sigma \tau$.
+Далее определяются линейные проекторы $T^0_q\to T^0_q$ симметризация $\tau \mapsto \Sym ( \tau)$ и
+ альтернирование $\tau \mapsto \Alt ( \tau)$.
+
+Множества симметрических и кососимметрических тензоров
+обозначаем (наряду c $T^0_q (V)^+ $ и $T^0_q (V)^- $) через $S^0_q (V) $ и $\Lambda^0_q (V) $ соответственно.
+Ясно, что $S^0_q (V) $ и $\Lambda^0_q (V) $ ---  подпространства в $T^0_q (V) $. 
+
+
+
+В координтанатах: пусть 
+$\tau \, \, \rsootv{\bazis{e}} \, \,  
+t_{ik \ldots }.   $
+Тогда 
+$$\sigma \tau \, \, \rsootv{\bazis{e}} \, \,  
+t_{\sigma(i) \sigma(k) \ldots }.    $$
+(Простой пример: транспонирование матрицы билинейной формы: $b_{ij} \mapsto b_{ji}$.)
+
+Для обозначения компонент тензора после симметризации и альтернирования применяются иногда 
+круглые и квадратные скобки. Так, 
+$$\Sym(\tau ) \, \, \rsootv{\bazis{e}} \, \,  
+t_{(ik \ldots )}  = \dfrac{1}{q!}\sum\limits_{\sigma \in S_q} t_{\sigma(i) \sigma(k) \ldots };   $$
+$$\Alt(\tau ) \, \, \rsootv{\bazis{e}} \, \,  
+t_{[ik \ldots ]}  = \dfrac{1}{q!}\sum\limits_{\sigma \in S_q} \varepsilon(\sigma) \cdot t_{\sigma(i) \sigma(k) \ldots }.    $$
+
+
+
+Рассмотрим тензоры  $\alpha \in T^0_p$ и
+$\beta \in T^{0}_{q}$.
+Тогда, согласно определению,\\
+$$(\alpha \otimes \beta)  (\underbrace{\vek{a}, \vek{b}, \ldots }_{p}, 
+\underbrace{\vek{c}, \vek{d}, \ldots }_{q}) \,  =      \, 
+\alpha (\underbrace{\vek{a}, \vek{b}, \ldots }_{p}) \, \cdot \, 
+\beta (\underbrace{\vek{c}, \vek{d}, \ldots }_{q}) = 
+(\beta \otimes \alpha )  (\underbrace{\vek{c}, \vek{d}, \ldots }_{q}, \underbrace{\vek{a}, \vek{b}, \ldots }_{p}).$$
+Отсюда 
+$$\beta \otimes \alpha  = \sigma_{q, p} (\alpha \otimes \beta), $$
+где перестановка $\sigma_{q, p}$ задается как
+$\begin{pmatrix}
+1 & 2 & \ldots &      q & q+1 & q+2 & \ldots & p+q  \\
+p+1 & p+2 & \ldots & p+q & 1 & 2 & \ldots & p
+\end{pmatrix}.$
+
+Так как, $\varepsilon (\sigma_{q, p})= (-1)^{pq}$, с учетом 
+лемм \ref{premix} и \ref{premix_alt}, получаем следующее.
+
+
+\begin{predl}\label{comm_sym}
+$\forall$  $\alpha \in T^0_p$ и $\beta \in T^{0}_{q}$ выполнено
+$$\Sym (\alpha \otimes \beta)  = \Sym (\beta \otimes \alpha ).$$
+\end{predl}
+
+
+\begin{predl}\label{comm_alt}
+$\forall$  $\alpha \in T^0_p$ и $\beta \in T^{0}_{q}$ выполнено
+$$\Alt (\alpha \otimes \beta)  = (-1)^{pq} \, \Alt (\beta \otimes \alpha ).$$
+\end{predl}
+
+\begin{predl}\label{double_mix_sym_1}
+$\forall$  $\alpha \in T^0_p$ и $\beta \in T^{0}_{q}$ выполнено
+$$\Sym ((\Sym (\alpha)  \otimes \beta)  =  \Sym (\alpha \otimes \Sym (\beta) ) = \Sym (\alpha \otimes \beta).$$
+\end{predl}
+\dok СХЕМА. 
+Заметим, что $\Sym (\alpha)  \otimes \beta  = \Sym_H  (\alpha  \otimes \beta)$, где $S_p\cong H \leq S_{p+q}$ ---  подгруппа перестановок, для которых последние $q$ элементов неподвижны.
+\edok
+
+\begin{predl}\label{double_mix_alt_1}
+$\forall$  $\alpha \in T^0_p$ и $\beta \in T^{0}_{q}$ выполнено
+$$\Alt ((\Alt (\alpha)  \otimes \beta)  =  \Alt (\alpha \otimes \Alt (\beta) ) = \Alt (\alpha \otimes \beta).$$
+\end{predl}
+
+\subsection{Симметрические тензоры. Базис в $S^0_q$.}
+
+
+Обозначим $q! \Sym (\vek{e}^{i_1} \otimes \vek{e}^{i_2} \otimes \ldots \otimes \vek{e}^{i_q})$ 
+коротко $\vek{e}^{i_1}\vek{e}^{i_2}\ldots \vek{e}^{i_q}$.
+
+\example{Например, \\
+$\vek{e}^{3}\vek{e}^{1}\vek{e}^{3} = 
+2(\vek{e}^{3} \otimes \vek{e}^{1} \otimes \vek{e}^{3} + \vek{e}^{1} \otimes \vek{e}^{3} \otimes \vek{e}^{3}
++\vek{e}^{3} \otimes \vek{e}^{3} \otimes \vek{e}^{1}) $.\\
+$\vek{e}^{3}\vek{e}^{1}\vek{e}^{2} = 
+\vek{e}^{1} \otimes \vek{e}^{2} \otimes \vek{e}^{3} + \vek{e}^{1} \otimes \vek{e}^{3} \otimes \vek{e}^{2}+
+\vek{e}^{2} \otimes \vek{e}^{1} \otimes \vek{e}^{3} + \vek{e}^{2} \otimes \vek{e}^{3} \otimes \vek{e}^{1}+
+\vek{e}^{3} \otimes \vek{e}^{1} \otimes \vek{e}^{2} + \vek{e}^{3} \otimes \vek{e}^{2} \otimes \vek{e}^{1}
+$.
+}
+
+Из-за коммутативности $\vek{e}^{i_1}\vek{e}^{i_2}\ldots \vek{e}^{i_q}$ 
+приводится к виду $(\vek{e}^1)^{k_1}\ldots (\vek{e}^n)^{k_n}$,
+где $k_i$ --- целые неотрицательные числа, сумма которых равна $q$.
+
+
+\begin{predl}
+1) $\{(\vek{e}^1)^{k_1}\ldots (\vek{e}^n)^{k_n} \, |\, k_i\in \mathbb{Z}_{+}, \sum k_i = q\}$ ---
+ базис в пространстве $S^0_q$;\\
+2) $\dim S^0_q = C_{n+q-1}^q$.
+\end{predl}
+
+
+\subsection{%Симметрическое произведение. 
+Симметрическая алгебра.}
+
+
+
+
+Для $\tau \in S^0_p$, $\tau ' \in S^0_{q}$ определяется {\it симметрическое умножение} по правилу: 
+$$\tau \lor \tau ' =  \dfrac{(p+q)!}{p!q!} \Sym(\tau \otimes \tau '). $$
+
+(иногда определяется без нормирующего множителя).
+Из предложений \ref{comm_sym} и 
+\ref{double_mix_sym_1} следует коммутативность и ассоциативность симметрического умножения.
+
+
+Иногда знак $\lor$ опускается, что согласуется с 
+обозначением $\vek{e}^{i_1}\vek{e}^{i_2}\ldots \vek{e}^{i_q}$:
+$$\vek{e}^{i_1}\lor \vek{e}^{i_2}\lor \ldots \lor \vek{e}^{i_q} = \vek{e}^{i_1}\vek{e}^{i_2}\ldots \vek{e}^{i_q}.$$
+
+
+$$S(V ) = \bigoplus\limits_{q=0}^{\infty} S^0_q.$$
+
+$S(V )$ --- {\it симметрическая алгебра} относительно $+, \lor$.
+(ассоциативная, коммутативная)
+
+
+
+\subsection{Кососимметрические тензоры. Базис в $\Lambda^0_q$.}
+
+
+Обозначим (временно) $q! \Alt (\vek{e}^{i_1} \otimes \vek{e}^{i_2} \otimes \ldots \otimes \vek{e}^{i_q})$ 
+коротко $\vek{e}^{i_1} \circ \vek{e}^{i_2}\circ  \ldots \circ  \vek{e}^{i_q}$.
+
+\example{Например, \\
+$\vek{e}^{3} \circ \vek{e}^{1} \circ \vek{e}^{3} = 0$; \\
+%2(\vek{e}^{3} \otimes \vek{e}^{1} \otimes \vek{e}^{3} + \vek{e}^{1} \otimes \vek{e}^{3} \otimes \vek{e}^{3}
+%+\vek{e}^{3} \otimes \vek{e}^{3} \otimes \vek{e}^{1}) $.
+$\vek{e}^{1}\circ \vek{e}^{2}\circ \vek{e}^{3} = 
+\vek{e}^{1} \otimes \vek{e}^{2} \otimes \vek{e}^{3} - \vek{e}^{1} \otimes \vek{e}^{3} \otimes \vek{e}^{2}+
+\vek{e}^{2} \otimes \vek{e}^{3} \otimes \vek{e}^{1} - \vek{e}^{2} \otimes \vek{e}^{1} \otimes \vek{e}^{3}+
+\vek{e}^{3} \otimes \vek{e}^{1} \otimes \vek{e}^{2} - \vek{e}^{3} \otimes \vek{e}^{2} \otimes \vek{e}^{1}
+$.
+}
+
+В частности, в трехмерном пространстве 
+$(\vek{e}^{1}\circ \vek{e}^{2}\circ \vek{e}^{3}) (\vek{a}, \vek{b}, \vek{c}) = $
+детерминант из координатных столбцов векторов $\vek{a}, \vek{b}, \vek{c}$.
+%$=\varepsilon_{ijk}x^iy^jz^k$.
+
+
+Из-за косокоммутативности $\vek{e}^{i_1} \circ \vek{e}^{i_2} \circ \ldots \circ \vek{e}^{i_q}$ 
+приводится к виду $0$ либо $\pm \vek{e}^{j_1} \circ \vek{e}^{j_2} \circ \ldots \circ \vek{e}^{j_q} $, где
+$j_1<j_2<\ldots <j_q$.
+% (\vek{e}^1)^{k_1}\ldots (\vek{e}^n)^{k_n}$
+%где $k_i$ --- целые неотрицательные числа, сумма которых равна $q$.
+
+
+\begin{predl}
+1) $\{\vek{e}^{j_1} \circ \vek{e}^{j_2} \circ \ldots \circ \vek{e}^{j_q} \, |\, 
+j_1<j_2<\ldots <j_q\}$ ---
+ базис в пространстве $\Lambda^0_q$;\\
+2) $\dim \Lambda^0_q = C_{n}^q$ при $q\leq n$ и $\Lambda^0_q = O$ при $q>n$.
+\end{predl}
+
+
+%Элементы $\Lambda^0_q$ называются $q$-векторами (поливекторы). здесь путаница между $V$ и $V^*$.
+
+%Поливектор вида $ разложимый поливектор
+
+
+\subsection{ 
+Внешняя алгебра.}
+
+
+
+
+Для $\tau \in \Lambda^0_p$, $\tau ' \in \Lambda^0_{q}$ определяется {\it внешнее умножение} по правилу: 
+$$\tau \wedge \tau ' =  \dfrac{(p+q)!}{p!q!} \Alt(\tau \otimes \tau '). $$
+
+(иногда определяется без нормирующего множителя).
+Из предложений \ref{comm_alt} и 
+\ref{double_mix_alt_1} следует косокоммутативность:
+$$\tau \wedge \tau ' = (-1)^{pq}\tau '\wedge \tau $$
+(в частности, при нечетном $p$ $\tau \wedge \tau =0$) 
+и ассоциативность внешнего умножения.
+
+%Иногда знак $\wedge$ опускается, что согласуется с 
+%обозначением $\vek{e}^{i_1}\vek{e}^{i_2}\ldots \vek{e}^{i_q}$:
+$$\vek{e}^{i_1}\circ \vek{e}^{i_2}\circ \ldots \circ \vek{e}^{i_q} = 
+\vek{e}^{i_1}\wedge \vek{e}^{i_2}\wedge \ldots \wedge \vek{e}^{i_q}.$$
+
+
+$$\Lambda(V ) = \bigoplus\limits_{q=0}^{n} \Lambda^0_q.$$
+
+$\Lambda(V )$ --- {\it внешняя алгебра} относительно $+, \wedge$.
+(ассоциативная, косокоммутативная)
+
+
+
+%ПРИМЕР. $\det$
+
+
+

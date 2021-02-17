@@ -1,0 +1,149 @@
+\section{Сопряженное преобразование. Самосопряженные преобразования.}
+
+\subsection{Сопряженное преобразование}
+
+Рассмотрим линейное преобразовние $\varphi : \mathcal{E}\to \mathcal{E}$.
+
+\defin{
+Линейное преобразование $\psi : \mathcal{E}\to \mathcal{E}$
+называют {\it сопряженным} преобразованию $\varphi$, если $\forall$ $\vek{a}, \vek{b}\in \mathcal{E}$ выполнено
+$$\boxed{(\varphi(\vek{a}), \vek{b})= (\vek{a}, \psi(\vek{b}))}.$$
+}
+
+Обозначение для сопряженного преобразования: $\varphi^{*}$. Из определения неясно, существует ли $\varphi^{*}$ и единственно ли оно. 
+Этот недостаток определения будет устранен после следующего предложения.
+
+\begin{predl}\label{p10_3_1}
+Пусть $\dim \mathcal{E}<\infty $, $\bazis{e}$ --- ОНБ в $\mathcal{E}$. Пусть $\varphi, \psi \in L(\mathcal{E}, \mathcal{E})$, 
+ $\varphi \rsootv{\bazis{e}, \bazis{e}} A$, 
+$\psi \rsootv{\bazis{e}, \bazis{e}} B$. Тогда
+$$\psi = \varphi ^{*} \Leftrightarrow \boxed{B=A^{*}}.$$
+%где $A^{*}=\overline{A^T}$.
+\end{predl}
+\dok
+Пусть $\vek{a}=\bazis{e}X$, $\vek{b}=\bazis{e}Y$. Имеем:
+$(\varphi(\vek{a}), \vek{b}) = (AX)^T\overline{Y} = X^T A^T\overline{Y} = \beta_1 (\vek{a}, \vek{b})$, где $\beta_1$  --- билинейная (полуторалинейная) форма с матрицей $A^T$.  \\
+$(\vek{a}, \psi(\vek{b})) = X^T\overline{BY} = X^T \overline{B} \overline{Y} = \beta_2 (\vek{a}, \vek{b})$, 
+где $\beta_2$  --- билинейная (полуторалинейная) форма с матрицей $\overline{B}$. \\
+Теперь утверждение теоремы означает, что равноство форм $\beta_1=\beta_2$ эквивалентно равенству их матриц (в одном базисе).
+\edok
+
+{\bf Упражнение.} Сформулируйте аналог предыдущего предложения в произвольном базисе с матрицей Грама $\Gamma$.
+
+\begin{sled1}
+Пусть $\dim \mathcal{E}<\infty $. Для данного $\varphi \in L(\mathcal{E}, \mathcal{E})$
+существует и единственное $\varphi ^{*}$.
+\end{sled1}
+
+\begin{sled2}
+Пусть $\dim \mathcal{E}<\infty $, $\varphi, \psi \in L(\mathcal{E}, \mathcal{E})$. Тогда \\
+1) $(\varphi ^{*})^{*} = \varphi$;\\
+2) $(\varphi \psi)^{*} = \psi^{*} \varphi^{*}$;
+3) $\rg (\varphi) = \rg (\varphi ^{*})$;
+4) $\overline{\chi_{\varphi} (\lambda)} = \chi_{\varphi ^{*}} (\overline{\lambda})$.
+\end{sled2}
+\dok Введем ОНБ $\bazis{e}$ и перейдем к матрицам преобразования в этом ОНБ. Свойства 1) --- 3) сразу следуют из соответсвующих свойств для матриц.\\
+4) $\overline{\chi_{\varphi} (\lambda)} =\overline{|A-\lambda E|}$
+$\chi_{\varphi ^{*}} (\overline{\lambda}) = |A^*-\overline{\lambda} E| = |\overline{A^T-\lambda E}| = 
+\overline{|(A-\lambda E)^T|} = \overline{|A-\lambda E|}$.
+\edok
+
+\begin{theor}\label{t10_3_1} 
+Пусть $U\leq \mathcal{E}$, $\dim \mathcal{E} <\infty$, $\varphi \in L(\mathcal{E}, \mathcal{E})$. Тогда  \\
+$U$ инвариантно относительно $\varphi$ 
+$\Leftrightarrow$ 
+$U^{\bot}$ инвариантно относительно $\varphi ^{*}$.
+\end{theor}
+\dok 
+\dokright
+Пусть $\vek{b} \in U^{\bot}$. Требуется понять, что $\varphi ^{*} (\vek{b}) \in U^{\bot}$, то есть что 
+$\forall$ $\vek{a} \in U$ выполнено $(\vek{a}, \varphi ^{*} (\vek{b})) = 0$.
+Но $(\vek{a}, \varphi ^{*} (\vek{b})) = (\varphi (\vek{a}), \vek{b}) = 0$, так как $\varphi (\vek{a}) \in U$ ввиду инвариантности $U$ относительно $\varphi$.\\
+\dokleft Аналогично ввиду $(\varphi ^{*})^{*} = \varphi$ и $(U^{\bot})^{\bot} = U$.
+\edok
+
+\begin{theor}[Теорема Фредгольма]\label{t10_3_2} 
+Пусть $\dim \mathcal{E}=n <\infty$, $\varphi \in L(\mathcal{E}, \mathcal{E})$. Тогда  \\
+$$\boxed{\Ker \varphi ^{*} = (\Im \varphi)^{\bot }}.$$
+\end{theor}
+\dok  Во-первых можно заметить, что подпространства $\Ker \varphi ^{*}$ и $(\Im \varphi)^{\bot }$ имеют равные размерности.
+Действительно, по теор..... $\dim \Ker \varphi ^{*} = n-\rg \varphi ^{*} = n-\rg \varphi$, а по ....
+$\dim (\Im \varphi)^{\bot } = n - \dim (\Im \varphi) =  n-\rg \varphi$.
+
+Значит, согласно ....., достаточно доказать включение $\Ker \varphi ^{*} \in  (\Im \varphi)^{\bot }$.
+Пусть $\vek{b}\in \Ker \varphi ^{*}$. Покажем, что $\vek{b}\in (\Im \varphi)^{\bot }$, т.е. $\forall$ $\vek{c}\in \Im \varphi$
+выполнено $\vek{c}\perp \vek{b}$. Поскольку $\vek{c}\in \Im \varphi$, найдем $\vek{a}\in \mathcal{E}$ такой, что $\vek{c} = \varphi (\vek{a})$.
+Тогда  $(\vek{c}, \vek{b}) = (\varphi (\vek{a}), \vek{b}) = (\vek{a}, \varphi ^{*}(\vek{b})) = (\vek{a}, \vek{0}) = 0$, откуда $\vek{c}\perp \vek{b}$, что и требовалось.
+\edok
+
+\subsection{Самосопряженные преобразования}
+
+\defin{
+Линейное преобразование $\varphi : \mathcal{E}\to \mathcal{E}$ называется {\it самосопряженным}, если $\varphi^{*}=\varphi$.
+}
+
+Иначе говоря, $\varphi \in L(\mathcal{E}, \mathcal{E})$ самосопряженное 
+$\Leftrightarrow$ $\forall$ $\vek{a}, \vek{b} \in \mathcal{E}$ выполнено $(\varphi(\vek{a}), \vek{b})= (\vek{a}, \varphi(\vek{b}))$.
+Тогда нетрудно заметить, что если $U$ --- инвариантное подпространство для самосопряженного $\varphi$, 
+то сужение $\varphi \mid_{U} : U \to U$ тоже является самосопряженным преобразованием.
+
+\begin{theor}\label{t10_4_1} 
+Пусть $\varphi \in L(\mathcal{E}, \mathcal{E})$, $\bazis{e}$ --- ОНБ, $\varphi \rsootv{\bazis{e}, \bazis{e}} A$.
+Тогда  $\varphi$ --- самосопряженное $\Leftrightarrow$ $A^{*}=A$.
+\end{theor}
+\dok Это частный случай предложения \ref{p10_3_1}.
+\edok
+
+
+\begin{theor}\label{t10_4_2} 
+Если $\varphi\in L(\mathcal{E}, \mathcal{E})$ --- самосопряженное преобразование,
+то все его характеристические числа вещественные. %корни $\chi_{\varphi}(\lambda)$ --- вещественные.
+\end{theor}
+\dok 
+1) Докажем вначале утверждение для унитарного пространства (над $\mathbb{C}$). Пусть $\lambda_0$ --- характеристическое число, а $\vek{a}$ --- собственный вектор, 
+соответствующий собственному значению $\lambda_0$.
+Запишем равенство $(\varphi(\vek{a}), \vek{a}) = (\vek{a}, \varphi(\vek{a}))$ (оно следует из определения самосопряженного преобразования).
+Так как $\varphi(\vek{a}) = \lambda_0 \vek{a}$, то $(\lambda_0 \vek{a}, \vek{a}) = (\vek{a}, \lambda_0 \vek{a})$, откуда 
+$\lambda_0  (\vek{a}, \vek{a}) = \overline{\lambda_0} (\vek{a},  \vek{a})$ $\Rightarrow$ $\lambda_0 = \overline{\lambda_0}$ $\Rightarrow$ $\lambda_0 \in \mathbb{R}$.\\
+2) Покажем, как случай евклидова пространства (над $\mathbb{R}$) свести к разобранному. С учетом теоремы \ref{t10_4_1} получаем, что в п.1) доказано, что 
+для каждой эрмитово-симметричной матрицы $A$ уравнение $|A-\lambda E|=0$ имеет лишь вещественные корни. Этого достаточно, так как  $\varphi$ в любом ОНБ имеет симметричную матрицу.
+(частный случай эрмитово-симметричной).
+\edok
+
+
+\begin{predl}\label{p10_4_3} 
+Пусть $\varphi\in L(\mathcal{E}, \mathcal{E})$ --- самосопряженное преобразование,
+$\lambda _i\neq \lambda _j$ --- его различные собственные значения. Тогда $V_{\lambda _i}\perp V_{\lambda _j}$
+\end{predl}
+\dok Пусть $\vek{a}_i\in V_{\lambda _i}$ и $\vek{a}_j\in V_{\lambda _j}$.
+Тогда $(\varphi(\vek{a}_i), \vek{a}_j) = (\vek{a}_i, \varphi(\vek{a}_j))$ 
+$\Rightarrow$   $(\lambda_i \vek{a}_i, \vek{a}_j) = (\vek{a}_i, \lambda_j \vek{a}_j)$
+$\Rightarrow$   $\lambda_i  (\vek{a}_i, \vek{a}_j) = \lambda_j (\vek{a}_i,  \vek{a}_j)$. Отсюда  
+с учетом $\lambda _i\neq \lambda _j$ получаем $(\vek{a}_i, \vek{a}_j) = 0$, что и требовалось.
+\edok
+
+
+
+\begin{theor}[Основная теорема о самосопряженных преобразованиях]\label{t10_4_3} 
+Пусть $\dim \mathcal{E}<\infty$. Для самоспоряженного преобразования $\varphi\in L(\mathcal{E}, \mathcal{E})$
+существует ОНБ из собственных векторов.
+\end{theor}
+\dok Проведем индукцию по $\dim \mathcal{E}$. База $\dim \mathcal{E}=1$ очевидна.
+
+Пусть $\dim \mathcal{E}=n$ и предположим, для размерности $n-1$ утверждение теоремы верно.
+Рассмотрим собственный вектор и нормируем его, получим $\vek{e}_n$ такой, что $|\vek{e}_n|=1$ и $\varphi(\vek{e}_n)=\lambda_n \vek{e}_n$.
+Подпространство $\lin{\vek{e}_n}$ размерности 1 инвариантно, значит $U=\lin{\vek{e}_n}^{\bot}$ --- $(n-1)$-мерное инвариантное подпространство.
+Как мы замечали, сужение $\varphi$ на $U$ --- самосопряженное, и по предположению индукции в $U$ существует ОНБ $\vek{e}_1, \ldots, \vek{e}_{n-1}$ из собственных векторов.
+Но $\vek{e}_n\perp \vek{e}_i$ для всех $i=1, \ldots, n-1$, поэтому $\vek{e}_1, \ldots, \vek{e}_{n-1}, \vek{e}_{n}$ --- искомый ОНБ в $\mathcal{E}$.
+\edok
+
+Последняя теорема фактически усиливает предложение \ref{p10_4_3}:
+получается, что для самосопряженного преобразования $\mathcal{E} = V_{\lambda_1}\oplus V_{\lambda_2} \oplus \ldots \oplus V_{\lambda_k}$, 
+где $V_{\lambda_i}$, $i=1, \ldots, k$, --- попарно ортогональные собственные подпространства.
+
+Геометрическая интерпретация последней теоремы: самосопряженное преобразование ---  
+композиция <<обобщенных растяжений>>  (т.е. с любым вещественным коэффициентом)
+вдоль ортогональных осей. 
+В частности, ортогональные проектирования и отражения являются самосопряженными преобразованиями.
+
+

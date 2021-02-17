@@ -1,0 +1,334 @@
+\documentclass[12pt, a4paper]{book}%{article}
+
+\usepackage[top=30pt, left=35pt, right=35pt, bottom=35pt]{geometry}
+\geometry{a4paper,portrait}
+
+\RequirePackage{amsfonts, amsmath, amssymb, amsthm, array, hhline}
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[russian]{babel}
+\RequirePackage{soul}
+
+\RequirePackage{graphicx, wrapfig}
+\graphicspath{{media/}}
+\DeclareGraphicsExtensions{.png,.jpg}
+
+\RequirePackage{pgfpages}
+\
+\pagestyle{empty}
+%\pagestyle{headings}
+%\advance\textwidth35mm
+%\advance\textheight65mm
+%\advance\voffset-20mm
+%\advance\voffset-20mm
+%\advance\hoffset-20mm
+%\parindent=2cm
+
+\sloppy
+
+%%%%%%%%%%%%
+%%%перенос в формулах
+%%%%%%%%%%%%%
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+            {\hbox{$\mathsurround=0pt #1$}}{}}
+\binoppenalty=10000
+\relpenalty=10000
+
+%%%%%%%%%%%%%%%
+%%%Функции и стандартные значки
+%%%%%%%%%%%%%%%
+
+\def\logar{\mathop{\rm log}\nolimits}
+\def\tg{\mathop{\rm tg}\nolimits}
+\def\ctg{\mathop{\rm ctg}\nolimits}
+\def\arctg{\mathop{\rm arctg}\nolimits}
+\def\arcsin{\mathop{\rm arcsin}\nolimits}
+\def\arccos{\mathop{\rm arccos}\nolimits}
+
+\def\rg{\mathop{\rm rg}\nolimits}
+\def\dim{\mathop{\rm dim}\nolimits}
+\def\Ker{\mathop{\rm Ker}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\Id{\mathop{\rm Id}\nolimits}
+\def\I{\mathop{\rm I}\nolimits}
+\def\det{\mathop{\rm det}\nolimits}
+\def\tr{\mathop{\rm tr}\nolimits}
+\def\pr{\mathop{\rm pr}\nolimits}
+\def\diag{\mathop{\rm diag}\nolimits}
+\def\deg{\mathop{\rm deg}\nolimits}
+\def\Sol{\mathop{\rm Sol}\nolimits}
+\def\ord{\mathop{\rm ord}\nolimits}
+\def\Hom{\mathop{\rm Hom}\nolimits}
+\def\Sym{\mathop{\rm Sym}\nolimits}
+\def\Alt{\mathop{\rm Alt}\nolimits}
+\def\exp{\mathop{\rm exp}\nolimits}
+\def\ln{\mathop{\rm ln}\nolimits}
+\def\vol{\mathop{\rm vol}\nolimits}
+
+%%%%%%%%
+%%больше - меньше
+%%%%%%%%
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+%\newcommand{\rg}{{\mathbf{rg }}}
+
+%%%%%%%%%%
+%%вектор
+%%равно в ранге (для теории групп)
+%%%%%%%%%%
+
+\newcommand*{\eqrg}[1]{\stackrel{#1}{=}}
+\newcommand*{\vek}[1]{\mathbf{#1}}
+\newcommand*{\bazis}[1]{\mathrm{#1}}
+
+\newcommand*{\stolbec}[1]{
+ %\left(
+ \begin{pmatrix}
+#1 \end{pmatrix}
+%\right)
+}
+
+\newcommand*{\lin}[1]{
+\langle
+#1 \rangle}
+
+
+%\newcommand*{\rsootv}[1]{
+%\begin{smallmatrix}
+%\longleftrightarrow \\
+%#1
+%\end{smallmatrix}}
+
+\newcommand*{\rsootv}[1]{
+\begin{smallmatrix}
+\longrightarrow \\
+#1
+\end{smallmatrix}}
+
+
+
+\newcommand*{\otstup}{\vspace{3mm}}
+
+%%%%%%%%%%
+%%оформление определений и примеров
+%%%%%%%%%%
+
+\newcommand*{\defin}[1]{\begin{flushleft}
+\hbox{%
+\vrule \hspace{.1em} \vrule \hspace{.5em}\parbox{.95\textwidth}%
+{\begin{opr}
+{#1}
+\end{opr}
+}}
+\end{flushleft}}
+
+\newcommand*{\example}[1]{\begin{flushleft}
+\hbox{%
+\hspace{.5em} \vrule \hspace{.5em}\parbox{.95\textwidth}%
+{#1}}
+\end{flushleft}}
+
+
+%%%%%%%%%%%%
+%%%нумерация формул, предложений, теорем
+%%%
+%%%метки глав.
+%%%начало метки любой теоремы tm_n_k, где m --- номер главы, n --- номер параграфа
+%%%начало метки любого предложения pm_n_k, где m --- номер главы, n --- номер параграфа
+%%%начало метки любой выносной формулы eqm_n_k, где m --- номер главы, n --- номер параграфа
+%%%%%%%%%%%%
+
+
+
+\newtheorem{theor}{Теорема}[section]
+\renewcommand{\thetheor}{\arabic{section}.\arabic{theor}}
+
+\newtheorem{predl}{Предложение}[section]
+\renewcommand{\thepredl}{\arabic{section}.\arabic{predl}}
+
+\newtheorem{lemm}{Лемма}[section]
+\renewcommand{\thelemm}{\arabic{section}.\arabic{lemm}}
+
+
+%\newcounter{opred}[chapter]
+%\newcommand{\opr}{\par\refstepcounter{opred}\noindent%
+%\textbf{Определение \arabic{opred}. }}
+
+\newcounter{opred}[chapter]
+\newcommand{\opr}{\par\refstepcounter{opred}\noindent%
+\textbf{Определение.}}
+
+\newcounter{zadacha}[chapter]
+\newcommand{\zad}{\par\refstepcounter{zadacha}\noindent%
+\textbf{Задача \arabic{zadacha}. }}
+
+\newcommand{\prim}{\par \noindent%\refstepcounter{zadacha}%
+\textbf{Пример. }}
+
+\newcommand{\prims}{\par \noindent%\refstepcounter{zadacha}%
+\textbf{Примеры. }}
+
+\newcommand{\dok}{$\vartriangleright$\hspace{2mm}}
+\newcommand{\edok}{$\square$\hspace{2mm}}
+%\newcommand{\eopr}{$\square$}
+\newcommand{\dokright}{$\boxed{\Rightarrow}\hspace{2mm}$}
+\newcommand{\dokleft}{$\boxed{\Leftarrow}\hspace{2mm}$}
+
+
+\renewcommand{\contentsname}{Содержание}
+\renewcommand{\chaptername}{Глава}
+%\renewcommand{\refname}{Литература}
+\renewcommand{\bibname}{Литература}
+\renewcommand{\indexname}{Предметный указатель}
+\renewcommand{\figurename}{Рис.}
+
+\renewcommand{\thesection}{$\large {\mathbf{\S}}$ \arabic{section}. \hspace{-8mm}}
+\renewcommand{\thesubsection}{}%{\arabic{subsection}. \hspace{-7mm}}
+
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+\renewcommand{\theparagraph}{\hspace{-7mm}}
+%\renewcommand{\thesection}{\arabic{section}}
+%\renewcommand{\section}{\@startsection{section}{1}%
+%{0pt}{-3.5ex plus -1ex minus -.2ex}%
+%{2.3ex plus.2ex }{\normalfont\Large}}
+
+
+%\newcommand{\l@abcd}[2]{\hbox to\textwidth{#1\dotfill #2} }
+
+\makeindex
+
+
+\begin{document}
+
+\title{Введение в линейную алгебру}
+\author{ Кожевников Павел Александрович}
+
+\date{\today}
+
+\maketitle
+
+
+%\LARGE
+
+%\pagestyle{headings}
+\pagestyle{plain}
+
+\newtheorem*{sled}{Следствие}%[chapter]
+\newtheorem*{sled1}{Следствие 1}%[chapter]
+\newtheorem*{sled2}{Следствие 2}%[chapter]
+%\newtheorem*{sled}{Следствие}%[chapter]
+\newtheorem*{sled3}{Следствие 3}%[chapter]
+\newtheorem*{sled4}{Следствие 4}%[chapter]
+\newtheorem*{sled5}{Следствие 5}%[chapter]
+\newtheorem*{lem}{Лемма}%[chapter]
+\newtheorem*{lem1}{Лемма 1}%[chapter]
+\newtheorem*{lem2}{Лемма 2}%[chapter]
+
+\newtheorem*{zamech}{Замечание}%[chapter]
+
+%\renewcommand{\thesled}{\arabic{sled}}
+
+%\tableofcontents
+
+\newpage
+
+\input{1_1}
+\input{1_2}
+\input{1_3}
+
+\input{1_5} %аффинные пр-ва
+
+
+%ГЛАВА
+%\ref{lin_otobr}
+
+\input{2_1}
+\input{2_2}
+\input{2_3}
+\input{2_4} % аффинные преобразования плоскости (опять экскурс в аффинные пр-ва)
+
+
+%ГЛАВА
+%\ref{structure}
+
+\input{2_5_1}
+\input{2_5_2}
+\input{2_6} % Жорданка 
+
+
+
+
+
+\input{3_1}
+\input{3_2}
+\input{3_3}
+\input{3_4}
+\input{3_5}  %кососимметричные формы
+
+
+\input{4_1} %матрица Грама
+\input{4_2} %ортогональное дополнение и пр
+\input{4_3} %сопряженные, с-с
+\input{4_4} %изоморфизм, ортог. преобразования, полярное разложение
+\input{4_5} %кв. формы
+%\input{4_6-short}
+%\input{4_7-short}
+%\input{4_8-short}
+%\input{4_9-short} "`Евклидовы пр-ва"' с не положительно определенным скалярным произведением
+
+\input{6_1}
+
+
+\input{7_1}
+\input{7_2}
+\input{7_3}
+
+%
+
+%\input{3krivye_i_poverh-2-short}
+%\input{3krivye_i_poverh-3-short}
+%\input{3krivye_i_poverh-4-short}
+%\input{3krivye_i_poverh-5-short}
+
+%\input{4affin_08}
+
+%\input{4affin-1}
+%\input{4affin-2}
+%\input{4affin-3}
+%\input{4affin-4}
+
+%\input{matricy}
+%\input{sistemy}
+
+
+%\input{lin_prostr}
+%\input{lin_otobr}
+%\input{kvadr_formy}
+%\input{evkl_prostr}
+
+%\input{prilozh_mnozh}
+%\input{prilozh_otobr}
+
+%\input{7_sistemy_lekc_plan}
+%\newpage
+%\input{8_lin_prostr_lekc_plan}
+%\newpage
+%\input{9_lin_otobr_lekc_plan}
+%\newpage
+%\input{10_sob_vektory_plan}
+%\newpage
+%\input{11_kvadr_formy_plan}
+%\newpage
+%\input{12_evkl_prostr_plan}
+%\newpage
+%\input{13_evkl_prostr_otobr_formy_plan}
+%\newpage
+%\input{oboznacheniya}
+%\input{library}
+%\begin{theindex}
+%\input{lekcii.ind}
+%\end{theindex}
+
+\end{document}

@@ -1,0 +1,255 @@
+\section{Матрица линейного отображения}\label{matr_lin_otobr}
+
+В этом параграфе занимаемся только конечномерными векторными пространствами. Полагаем
+$\dim V = n$, $\dim \widetilde{V} = m$, $\dim \widehat{V} = p$.
+
+\subsection{Определение. Координатная запись линейного отображения}
+
+\defin{
+Пусть в пространствах $V$ и $\widetilde{V}$ зафиксированы базисы
+$\bazis{e}=(\vek{e}_1, \vek{e}_2, \ldots , \vek{e}_n)$ и
+$\bazis{f}=(\vek{f}_1, \vek{f}_2, \ldots , \vek{f}_m)$ соответственно.
+{\it Матрицей линейного отображения} $\varphi \in L(V, \widetilde{V})$
+в паре базисов $\bazis{e}$ и $\bazis{f}$
+называется матрица $A\in \mathbf{M}_{m\times n}$, столбцы $a_{\bullet 1}, a_{\bullet 2}, \ldots , a_{\bullet n}$
+которой --- координатные столбцы соответственно
+векторов $\varphi (\vek{e}_1), \varphi (\vek{e}_2), \ldots , \varphi (\vek{e}_n)$
+в базисе $\bazis{f}$.
+}
+
+Матрицу линейного преобразования $\varphi \in L(V, V)$ в паре совпадающих базисов $\bazis{e}$ и $\bazis{e}$
+будем также называть короче: матрица $\varphi$ в базисе $\bazis{e}$.
+
+Компактно определение можно записать как $(\varphi (\vek{e}_1)\, \varphi (\vek{e}_2)\, \ldots \, \varphi (\vek{e}_n)) = \bazis{f} A$.
+Тот факт, что $A$ --- матрица линейного отображения $\varphi$
+в паре базисов $\bazis{e}$ и $\bazis{f}$, будем обозначать
+$\varphi \rsootv{\bazis{e}, \bazis{f}} A$.
+
+
+\begin{predl}\label{p8_3_111}
+Пусть в пространствах $V$ и $\widetilde{V}$ зафиксированы базисы
+$\bazis{e}$ и $\bazis{f}$ соответственно.
+Тогда отображение $\varphi \rsootv{\bazis{e}, \bazis{f}} A$ --- биекция между $L(V, \widetilde{V})$ и $\mathbf{M}_{m\times n}$.
+\end{predl}
+\dok По определению матрица $A$ несет в себе полную информацию об образах базисных векторов.
+Остается воспользоваться теоремой \ref{t8_1_1}.
+%что фиксация базисов в $V$ и $\widetilde{V}$ дает взаимно-однозначное соответствие между
+%$\varphi \in L(V, \widetilde{V})$ и $\mathbf{M}_{m\times n}$.
+\edok
+
+\otstup 
+
+Выведем формулу координатной записи линейного отображения.
+
+\begin{theor}\label{t8_3_1}
+Пусть $\varphi \rsootv{\bazis{e}, \bazis{f}} A$.
+Если $\vek{a} = \bazis{e} X$, $\varphi (\vek{a}) = \bazis{f} Y$, то 
+$$\boxed{Y=AX}.$$
+\end{theor}
+\dok Так как $\vek{a} = \sum\limits_{i=1}^n x_i \vek{e}_i$, 
+то $\varphi (\vek{a}) = \sum\limits_{i=1}^n x_i \varphi(\vek{e}_i)$. Заменим в этом равенстве векторы на их координатные
+столбцы в базисе $\bazis{f}$, получим:
+$Y= \sum\limits_{i=1}^n x_i a_{\bullet i}$, где, как обычно, $a_{\bullet i}$ обозначает $i$-й столбец матрицы $A$.
+Правая часть последнего равенства равна $AX$, что и требовалось уствновить.
+\edok
+
+\otstup
+
+Формула из предыдущей теоремы фактически эквивалентна определению матрицы линейного отображения.
+Более, точно, справедливо следующее %предложение.
+%
+%\begin{predl}\label{p8_3_2}
+\begin{sled}
+Пусть дано 
+отображение $\varphi :V\to \widetilde{V}$ (априори не известно, что оно линейное) 
+и матрица $A \in M_{m\times n}$.
+Пусть $\forall$ $\vek{a} \in V$ координатные столбцы $X$ и $Y$ векторов
+$\vek{a} = \bazis{e} X$ и $\varphi (\vek{a}) = \bazis{f} Y$ связаны 
+равенством $Y=AX$. Тогда $\varphi \in L(V, \widetilde{V})$, причем
+$\varphi \rsootv{\bazis{e}, \bazis{f}} A$.
+\end{sled}
+%\end{predl}
+\dok Возьмем $\psi \in L(V, \widetilde{V})$ такое, что $\psi \rsootv{\bazis{e}, \bazis{f}} A$ (такое 
+$\psi$ существует, согласно предложению \ref{p8_3_111}). Тогда $\varphi$ и $\psi$ имеют одну и ту же координатную запись $Y=AX$, т.е. 
+$\varphi = \psi$.
+\edok
+
+\subsection{Матрица перехода и матрица преобразования}
+
+Переход от базиса $\bazis{e}=(\vek{e}_1, \ldots, \vek{e}_n)$ к $\bazis{e}'=(\vek{e}'_1, \ldots, \vek{e}'_n)$  
+формально не связан с  линейными преобразованиями. Однако, согласно теореме \ref{t8_1_1}, 
+по паре базисов $\bazis{e}$ и $\bazis{e}'$ можно определить единственное линейное отображение 
+$\varphi: V\to V$ такое, что $\varphi (\vek{e}_i) = \vek{e}'_i$ для $i=1, \ldots, n$
+(при этом $\varphi $ является  изоморфизмом --- см. теорему \ref{t_isom1}). 
+Отметим следующую связь между матрицей линейного преобразования и матрицей перехода.
+
+%Матрица этого изоморфизма в базисе $\bazis{e}$ будет совпадать с матрицей перехода от $\bazis{e}$ к $\bazis{e}'$.
+
+
+\begin{predl}\label{p8_3_112}
+Пусть $\dim V=n<\infty$, $\bazis{e}$ и $\bazis{e}'$ --- базисы в $V$.
+Пусть изоморфизм $\varphi: V\to V$ таков, что $\varphi (\vek{e}_i) = \vek{e}'_i$ для $i=1, \ldots, n$;
+$\varphi \rsootv{\bazis{e}, \bazis{e}} A$. Тогда $A$ --- матрица перехода от $\bazis{e}$ к $\bazis{e}'$.
+\end{predl}
+\dok Достаточно сопоставить определения матрицы линейного отображения и матрицы перехода.
+\edok
+
+
+
+
+\subsection{Связь между операциями над отображениями и матрицами}
+
+Предложение \ref{p8_3_111} может быть усилено следующим образом.
+
+\begin{theor}\label{p8_3_333}
+Пусть $\bazis{e}$ и $\bazis{f}$ --- базисы  пространств $V$ и $\widetilde{V}$ соответственно.
+Тогда отображение $\varphi \rsootv{\bazis{e}, \bazis{f}} A$ является изоморфизмом
+линейных пространств $L(V, \widetilde{V})$ и $\mathbf{M}_{m\times n}$.\\
+\end{theor}
+\dok Непосредственная проверка.
+\edok
+
+\begin{sled}
+$\dim L(V, \widetilde{V}) = mn$.
+\end{sled}
+%\dok
+%\edok
+
+\otstup
+
+Аналогично, для векторного пространства $V$ над $\mathbb{C}$ 
+пространство $\overline{L}(V, \widetilde{V})$ (со вторым способом определения отображения на константу)
+изоморфно $\mathbf{M}_{m\times n}(\mathbb{C})$; изоморфизм устанавливается как
+$\varphi \mapsto \overline{A}$.
+
+
+\begin{predl}\label{p8_3_4}
+Пусть $\varphi \in L(V, \widetilde{V})$, $\widetilde{\varphi} \in
+L(\widetilde{V}, \widehat{V})$, $\bazis{e}$, $\bazis{f}$, $\bazis{g}$ 
+--- базисы  пространств $V$, $\widetilde{V}$, $\widehat{V}$ соответственно.
+Пусть $\varphi \rsootv{\bazis{e}, \bazis{f}} A$,
+ $\widetilde{\varphi} \rsootv{\bazis{f}, \bazis{g}} \widetilde{A}$.
+Тогда $ \widetilde{\varphi} \varphi \rsootv{\bazis{e}, \bazis{g}} \widetilde{A} A$.
+\end{predl}
+\dok Пусть $\vek{a}\in V$ --- произвольный вектор, $\vek{a} = \bazis{e}X$, 
+$\varphi(\vek{a}) = \bazis{f}Y$, $\widetilde{\varphi}(\varphi(\vek{a})) = \bazis{g}Z$.
+ Тогда дважды пользуясь теоремой \ref{t8_3_1}, имеем
+$Y=AX$, $Z=\widetilde{A}Y$, откуда $Z= \widetilde{A}(AX)=(\widetilde{A}A)X$.
+Отсюда следует требуемое
+(см. следствие из теоремы \ref{t8_3_1}).
+\edok
+
+\begin{sled1}
+Пусть $\varphi \rsootv{\bazis{e}, \bazis{f}} A$.
+Тогда $\varphi$ --- изоморфизм $\Leftrightarrow$ $A$ обратима.
+Если $\varphi$ --- изоморфизм, то
+$\varphi ^{-1} \rsootv{\bazis{f}, \bazis{e}} A^{-1}$.
+\end{sled1}
+\dok Следует из того, что $I_V \rsootv{\bazis{e}, \bazis{e}} E$.
+\edok
+
+\begin{sled2}
+Пусть $\varphi \in L(V, V)$ и $\varphi \rsootv{\bazis{e}, \bazis{e}} A$.
+Тогда  для любого многочлена $p$ имеем $p(\varphi) \rsootv{\bazis{e}, \bazis{e}} p(A)$.
+\end{sled2}
+
+\begin{sled3}
+Пусть $\bazis{e}$ --- базис  пространства $V$.
+Тогда отображение $\varphi \rsootv{\bazis{e}, \bazis{e}} A$ является изоморфизмом 
+алгебр $L(V, V)$ и $\mathbf{M}_{n\times n} (\mathbb{F})$.\\
+В частности группа %$L(V, V)^*$
+(по умножению) изоморфизмов $V\to V$ изоморфна $GL_n(\mathbb{F})$ (группе невырожденных матриц).
+\end{sled3}
+
+\otstup
+
+Установленное соответствие между операциями над линейными отображенями и операциями над матрицами
+может быть применено в обе стороны: некоторые задачи об отображениях могут быть сведены к вопросам о матрицах, и наоборот (см., например, упражнения в конце следующего параграфа).
+
+Многие понятие могут быть определены одновременно для линейных операторов и для матриц.
+Напрмер: говорят о {\it ранге отображения}, имея в виду ранг матрицы этого отображения
+(ниже мы увидим, что этот ранг не зависит от выбора базисов);
+{\it невырожденным} называют оператор
+$\varphi \in L(V, V)$, матрица которого невырожденная (это условие эквивалентно тому, что $\varphi$ --- изоморфизм);
+c другой стороны, 
+ можем говорить об аннулирующих и минмальных многочленах для матриц из $\mathbf{M}_{n\times n} (\mathbb{F})$.
+
+
+
+
+\subsection{Изменение матрицы при замене базиса}
+
+\begin{theor}\label{t8_3_2}
+Пусть в $V$ выбраны базисы $\bazis{e}$ и $\bazis{e}'$, связанные матрицей перехода $S$:
+$\bazis{e}'= \bazis{e} S$;
+в $\widetilde{V}$ выбраны базисы $\bazis{f}$ и $\bazis{f}'$, связанные матрицей перехода $R$:
+$\bazis{f}'= \bazis{f} R$.
+Пусть $\varphi \in L(V, \widetilde{V})$ таково, что 
+$\varphi \rsootv{\bazis{e}, \bazis{f}} A$ и $\varphi \rsootv{\bazis{e'}, \bazis{f'}} A'$.
+%имеет матрицу $A$ в базисах $\bazis{e}$, $\bazis{f}$, и матрицу
+%$A'$ в базисах $\bazis{e}'$, $\bazis{f}'$.
+Тогда  $$\boxed{A' = R^{-1}AS}.$$
+В частности, если $V=\widetilde{V}$, $\bazis{e}= \bazis{f}$ и $\bazis{e}'= \bazis{f}' $, то 
+$$\boxed{A' = S^{-1}AS}.$$
+\end{theor}
+\dok Пусть $\vek{a}\in V$ --- произвольный вектор. Пусть $\vek{a}=\bazis{e}X = \bazis{e}'X'$, 
+$\varphi(\vek{a})=\bazis{f}Y = \bazis{f}'Y'$. Тогда по теореме \ref{t8_3_1}  имеем $Y=AX$, $Y'=A'X'$ и
+(по теореме \ref{t7_3_2}, глава \ref{lin_prostr}) $X=SX'$, $Y=RY'$. 
+Отсюда $RY' = ASX'$ $\Rightarrow$ $Y' = R^{-1}ASX'$ или $Y' = (R^{-1}AS)X'$.
+Получаем требуемое: $R^{-1}AS=A'$ (см. следствие из теоремы \ref{t8_3_1}).
+\edok
+
+\begin{sled}
+Ранг матрицы линейного отображения $\varphi \in L(V, \widetilde{V})$ не зависит от выбора базисов в пространствах $V$ и $\widetilde{V}$.
+\end{sled}
+\dok
+Следует из того, что $A'$ получается из $A$ домножением слева и справа на невырожденные матрицы.
+\edok
+
+\otstup
+
+Инвариантная характеризация ранга матрицы линейного отображения дается ниже в следствии из теоремы \ref{t8_2_111}.
+
+\otstup
+
+Заметим также, что матрицу $S^{-1}AS$ иногда называют {\it подобной} или {\it сопряженной} матрице $A$.
+Нетрудно проверить, что отношение подобия --- это отношение эквивалентности на множестве
+$\mathbf{M}_{n\times n}(\mathbb{F})$. Это согласуется с тем фактом, что подобные матрицы соответствуют
+одному и тому же оператору, в разных базисах.
+
+
+\subsection{Примеры}
+
+Пусть $V = U_1 \bigoplus U_2$. 
+Введем базис  $\bazis{e} = (\vek{e}_1, \vek{e}_2, \ldots , \vek{e}_n)$ в $V$, {\it согласованный}  $U_1 \bigoplus U_2$, 
+так, что $\vek{e}_1, \ldots , \vek{e}_k$ --- базис в $U_1$, а $\vek{e}_{k+1}, \ldots , \vek{e}_n$ --- базис в $U_2$.\\
+Пусть  $\varphi: V\to V$ --- проектирование на $U_1$ вдоль $U_2$. 
+Тогда (по определению матрицы линейного отображения): $\varphi \rsootv{\bazis{e}, \bazis{e}} \begin{pmatrix}
+E_k & O \\
+O & O
+\end{pmatrix}.$\\
+Пусть  $\psi: V\to V$ --- отражение относительно $U_1$ вдоль $U_2$. 
+Тогда $\psi \rsootv{\bazis{e}, \bazis{e}} \begin{pmatrix}
+E_k & O \\
+O & -E_{n-k}
+\end{pmatrix}.$
+
+%В СТАНДАРТНОМ БАЗИСУ УМНОЖЕНИЕ НА ФИКС, МАТРИЦУ
+
+
+\example{III.1.
+Пусть $V= \mathbf{P}_n = \lin{1, x, x^2, \ldots, x^n}$ и 
+$\bazis{e} = (1, x, x^2, \ldots, x^n)$ --- стандартный базис в $V$.
+Оператор дифференцирования $d: V\to V$ имеет в базисе $\bazis{e}$ матрицу 
+$\begin{pmatrix}
+0 & 1 & 0 & \ldots & 0\\
+0 & 0 & 2 & \ldots & 0\\
+ &  & \ldots &  & \\
+0 & 0 & 0 & \ldots & n\\
+0 & 0 & 0 & \ldots & 0
+\end{pmatrix}$
+(поскольку $(x^{k+1})' = (k+1)x^k$, имеем $d(e_{i+1}) = (i+1)e_i$). %, $k=1, 2, \ldots, n$.
+}
+
+
+
